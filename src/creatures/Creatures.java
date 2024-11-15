@@ -91,9 +91,8 @@ public class Creatures {
         return sicknessList;
     }
 
-    public ArrayList<Sickness> loseSickness(ArrayList<Sickness> sicknessList){
+    public void loseSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
         this.sicknessList.remove(sickness);
-        return sicknessList;
     }
 
     public String getName(){

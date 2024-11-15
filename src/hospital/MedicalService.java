@@ -4,7 +4,7 @@ import creatures.Creatures;
 import creatures.Sickness;
 
 import java.util.ArrayList;
-import java.util.Random;
+//import java.util.Random;
 
 public class MedicalService {
     private String name;
@@ -90,7 +90,8 @@ public class MedicalService {
         return creatures;
     }
     public Creatures healCreatures(Creatures creatures, Sickness sickness){
-        creatures.loseSickness(this.sickness);
+        ArrayList<Sickness> list = creatures.getSicknessList();
+        creatures.loseSickness(list,sickness);
         return creatures;
     }
     public String reviewBudget(String budget){
