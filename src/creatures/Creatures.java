@@ -9,7 +9,7 @@ public class Creatures {
     private double height;
     private int age;
     private int moralIndicator;
-    private ArrayList<String> sicknessList = new ArrayList<String>();
+    private ArrayList<Sickness> sicknessList = new ArrayList<Sickness>();
 
     public void waiting(){
 
@@ -20,9 +20,12 @@ public class Creatures {
     public void getAngry(){
 
     }
-    public void getSickness(){
-
+    public ArrayList<String> getSickness(ArrayList<String> sicknessList){
+        Sickness sickness;
+        sicknessList.add(sickness);
+        return sicknessList;
     }
+
     public void loseSickness(){
 
     }
