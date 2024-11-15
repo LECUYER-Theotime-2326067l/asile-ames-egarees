@@ -12,26 +12,42 @@ public class Creatures {
     private ArrayList<Sickness> sicknessList = new ArrayList<Sickness>();
 
     public void waiting(){
-
+        this.moralIndicator--;
     }
-    public void screaming(){
-
+    public boolean screaming(){
+        boolean screaming = false;
+        if(this.moralIndicator == 0){
+            System.out.println(this.name + " hurle");
+            screaming = true;
+        }
+        return screaming;
     }
+
     public void getAngry(){
-
+        // si a hurlé 5 fois, alors s'emporte
+        int i=0;
+        if(screaming()){
+            i++;
+        }
+        if(i==5){
+            System.out.println(this.name + " décide de tabasser quelqu'un avec sa chaise.");
+        }
     }
-    public ArrayList<String> getSickness(ArrayList<String> sicknessList){
-        Sickness sickness;
-        sicknessList.add(sickness);
+
+    public ArrayList<Sickness> getSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
+        this.sicknessList.add(sickness);
         return sicknessList;
     }
 
-    public void loseSickness(){
-
+    public ArrayList<Sickness> loseSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
+        this.sicknessList.remove(sickness);
+        return sicknessList;
     }
+
     public String getName(){
         return name;
     }
+
     public void die(){
 
     }
