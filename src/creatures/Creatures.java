@@ -77,7 +77,6 @@ public class Creatures {
     }
 
     public void getAngry(){
-        // si a hurlé 5 fois, alors s'emporte
         int i=0;
         if(screaming()){
             i++;
@@ -92,7 +91,7 @@ public class Creatures {
         return sicknessList;
     }
 
-    public ArrayList<Sickness> loseSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
+    public ArrayList<Sickness> loseSickness(ArrayList<Sickness> sicknessList){
         this.sicknessList.remove(sickness);
         return sicknessList;
     }
