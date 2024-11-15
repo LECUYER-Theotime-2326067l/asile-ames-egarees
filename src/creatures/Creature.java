@@ -2,7 +2,7 @@ package creatures;
 
 import java.util.ArrayList;
 
-public class Creatures {
+public class Creature {
     private String name;
     private String sex;
     private double weight;
@@ -83,7 +83,21 @@ public class Creatures {
         }
         if(i==5){
             System.out.println(this.name + " décide de tabasser quelqu'un avec sa chaise.");
+            i = 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Caractéristiques de " +
+                name + " : "+'\n'+
+                "sexe : '" + sex + '\'' +
+                ", poids : " + weight +
+                ", taille : " + height +
+                ", âge : " + age +
+                ", niveau de moral : " + moralIndicator +
+                ", liste de maladies : " + sicknessList +
+                '}';
     }
 
     public ArrayList<Sickness> getSickness(ArrayList<Sickness> sicknessList, Sickness sickness){

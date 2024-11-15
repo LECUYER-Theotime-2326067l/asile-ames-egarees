@@ -1,6 +1,6 @@
 package hospital;
 
-import creatures.Creatures;
+import creatures.Creature;
 import creatures.Sickness;
 
 import java.util.ArrayList;
@@ -11,9 +11,9 @@ public class MedicalService {
     private double surfaceArea;
     private int maxNumberOfCreatures;
     private int numberOfPresentCreatures;
-    private ArrayList<Creatures> creatures;
+    private ArrayList<Creature> creatures;
     private String budget;
-    private ArrayList<Sickness> sickness;
+    private MedicalService medicalService;
 
     public String getBudget() {
         return budget;
@@ -23,11 +23,11 @@ public class MedicalService {
         this.budget = budget;
     }
 
-    public ArrayList<Creatures> getCreatures() {
+    public ArrayList<Creature> getCreatures() {
         return creatures;
     }
 
-    public void setCreatures(ArrayList<Creatures> creatures) {
+    public void setCreatures(ArrayList<Creature> creatures) {
         this.creatures = creatures;
     }
 
@@ -63,36 +63,41 @@ public class MedicalService {
         this.name = name;
     }
 
-    public void caracteristics(MedicalService medicalService, ArrayList<Creatures> creatures) {
-        System.out.println("Nom du service : " +medicalService.getName()+", " +
-                "superficie : "+medicalService.getSurfaceArea()+
-                ", peut accueillir au maximum "+medicalService.getMaxNumberOfCreatures()+
-                        " créatures, les créatures présentes : "+medicalService.getCreatures()+".");
-
-
-        for(int i=0; i<creatures.size(); i++){
-            System.out.println(creatures.get(i).getName()+
-                    " de sexe "+creatures.get(i).getSex()+
-                    ", son indicateur de moral est à "+creatures.get(i).getMoralIndicator()+
-                    ", pèse "+creatures.get(i).getWeight()+
-                    " kg, mesure "+creatures.get(i).getHeight()+
-                    " et ses maladies sont "+creatures.get(i).getSicknessList()+".");
-        }
+    @Override
+    public String toString() {
+        return "Caractéristiques du Service Médical : " +
+                "Nom : '" + name + '\n' +
+                ", superficie : " + surfaceArea +
+                ", nombre maximum de créatures : " + maxNumberOfCreatures +
+                ", nombre de créatures présentes : " + numberOfPresentCreatures +
+                ", Créatures présentes : " + creatures +
+                ", budget : " + budget + '\n' +
+                '.';
     }
-    public ArrayList<Creatures> addCreatures(Creatures creature) {
+
+    public String caracteristics() {
+        String caracteristics;
+        caracteristics = medicalService.toString();
+        System.out.println(caracteristics);
+        for(int i=0; i<creatures.size(); i++){
+            System.out.println(creatures.get(i).toString());
+        }
+        return caracteristics;
+    }
+    public ArrayList<Creature> addCreatures(Creature creature) {
         creatures.add(creature);
         System.out.println(creature.getName()+" vient d'arriver.");
         return creatures;
     }
-    public ArrayList<Creatures> removeCreatures(Creatures creature) {
+    public ArrayList<Creature> removeCreatures(Creature creature) {
         creatures.remove(creature);
         System.out.println(creature.getName()+" est parti.");
         return creatures;
     }
-    public Creatures healCreatures(Creatures creatures, Sickness sickness){
-        ArrayList<Sickness> list = creatures.getSicknessList();
-        creatures.loseSickness(list,sickness);
-        return creatures;
+    public Creature healCreatures(Creature creature, Sickness sickness){
+        ArrayList<Sickness> list = creature.getSicknessList();
+        creature.loseSickness(list,sickness);
+        return creature;
     }
     public String reviewBudget(String budget){
         // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
