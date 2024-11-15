@@ -3,16 +3,37 @@ package creatures;
 import java.util.ArrayList;
 
 public class Creature {
-    private String name;
-    private String sex;
-    private double weight;
-    private double height;
-    private int age;
-    private int moralIndicator;
-    private ArrayList<Sickness> sicknessList = new ArrayList<Sickness>();
+    protected String name;
+    protected String sex;
+    protected double weight;
+    protected double height;
+    protected int age;
+    protected int moralIndicator;
+    protected boolean isContagious;
 
-    public void setName(String name) {
+    public Creature(String name, String sex, double weight, double height, int age, int moralIndicator, boolean isContagious) {
         this.name = name;
+        this.sex = sex;
+        this.weight = weight;
+        this.height = height;
+        this.age = age;
+        this.moralIndicator = moralIndicator;
+        this.isContagious = isContagious;
+    }
+    public boolean isContagious() {
+        return isContagious;
+    }
+
+    public boolean setContagious(boolean contagious) {
+        isContagious = contagious;
+        return contagious;
+    }
+
+    protected ArrayList<Sickness> sicknessList = new ArrayList<Sickness>();
+
+    public String setName(String name) {
+        this.name = name;
+        return name;
     }
 
     public String getSex() {
@@ -39,24 +60,28 @@ public class Creature {
         this.sicknessList = sicknessList;
     }
 
-    public void setMoralIndicator(int moralIndicator) {
+    public int setMoralIndicator(int moralIndicator) {
         this.moralIndicator = moralIndicator;
+        return moralIndicator;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public int setAge(int age) {
         this.age = age;
+        return age;
     }
 
-    public void setHeight(double height) {
+    public double setHeight(double height) {
         this.height = height;
+        return height;
     }
 
-    public void setWeight(double weight) {
+    public double setWeight(double weight) {
         this.weight = weight;
+        return weight;
     }
 
     public String setSex(String sex) {
@@ -97,7 +122,7 @@ public class Creature {
                 ", âge : " + age +
                 ", niveau de moral : " + moralIndicator +
                 ", liste de maladies : " + sicknessList +
-                '}';
+                " et la contagiosité est définie sur "+isContagious;
     }
 
     public ArrayList<Sickness> getSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
@@ -111,9 +136,5 @@ public class Creature {
 
     public String getName(){
         return name;
-    }
-
-    public void die(){
-
     }
 }
