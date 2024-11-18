@@ -33,8 +33,15 @@ public class Doctor {
     public void setName(String name) {
         this.name = name;
     }
+
     public MedicalService examineMedicalServiceAndCreatures(MedicalService medicalService) {
         System.out.println(medicalService.caracteristics());
         return medicalService;
+    }
+
+    public String reviewBudget(String budget, MedicalService medicalService) {
+        // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
+        budget = budget.replace("$i ", medicalService.getBudget());
+        return budget;
     }
 }
