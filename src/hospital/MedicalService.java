@@ -1,7 +1,7 @@
 package hospital;
 
 import creatures.Creature;
-import creatures.Sickness;
+import creatures.Disease;
 
 import java.util.ArrayList;
 //import java.util.Random;
@@ -23,7 +23,14 @@ public class MedicalService {
         this.budget = budget;
     }
 
-    public ArrayList<Creature> getCreatures() {
+    public ArrayList<Creature> getCreatures(MedicalService medicalService) {
+        for(Creature creature : creatures) {
+            creature.getAge();
+            creature.getWeight();
+            creature.getSex();
+            creature.getSicknessList();
+            creature.getMoralIndicator();
+        }
         return creatures;
     }
 
@@ -33,10 +40,6 @@ public class MedicalService {
 
     public int getNumberOfPresentCreatures() {
         return numberOfPresentCreatures;
-    }
-
-    public void setNumberOfPresentCreatures(int numberOfPresentCreatures) {
-        this.numberOfPresentCreatures = numberOfPresentCreatures;
     }
 
     public int getMaxNumberOfCreatures() {
@@ -87,21 +90,26 @@ public class MedicalService {
     public ArrayList<Creature> addCreatures(Creature creature) {
         creatures.add(creature);
         System.out.println(creature.getName()+" vient d'arriver.");
+        int present = getNumberOfPresentCreatures()+1;
         return creatures;
     }
     public ArrayList<Creature> removeCreatures(Creature creature) {
         creatures.remove(creature);
         System.out.println(creature.getName()+" est parti.");
+        int present = getNumberOfPresentCreatures() - 1;
         return creatures;
     }
-    public Creature healCreatures(Creature creature, Sickness sickness){
-        ArrayList<Sickness> list = creature.getSicknessList();
-        creature.loseSickness(list,sickness);
+    public Creature healCreatures(Creature creature, Disease disease){
+        ArrayList<Disease> list = creature.getSicknessList();
+        creature.loseSickness(list, disease);
         return creature;
     }
     public String reviewBudget(String budget){
-        // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
+        // le budget doit prendre une valeur pas aléatoire entre inexistant, insuffisant, faible et médiocre
         this.budget = budget;
         return budget;
+    }
+    public void quarantine(){
+
     }
 }

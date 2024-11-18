@@ -3,16 +3,37 @@ package creatures;
 import java.util.ArrayList;
 
 public class Creature {
-    private String name;
-    private String sex;
-    private double weight;
-    private double height;
-    private int age;
-    private int moralIndicator;
-    private ArrayList<Sickness> sicknessList = new ArrayList<Sickness>();
+    protected String name;
+    protected String sex;
+    protected double weight;
+    protected double height;
+    protected int age;
+    protected int moralIndicator;
+    protected boolean isContagious;
 
-    public void setName(String name) {
+    public Creature(String name, String sex, double weight, double height, int age, int moralIndicator, boolean isContagious) {
         this.name = name;
+        this.sex = sex;
+        this.weight = weight;
+        this.height = height;
+        this.age = age;
+        this.moralIndicator = moralIndicator;
+        this.isContagious = isContagious;
+    }
+    public boolean isContagious() {
+        return isContagious;
+    }
+
+    public boolean setContagious(boolean contagious) {
+        isContagious = contagious;
+        return contagious;
+    }
+
+    protected ArrayList<Disease> diseaseList = new ArrayList<Disease>();
+
+    public String setName(String name) {
+        this.name = name;
+        return name;
     }
 
     public String getSex() {
@@ -31,32 +52,36 @@ public class Creature {
         return moralIndicator;
     }
 
-    public ArrayList<Sickness> getSicknessList() {
-        return sicknessList;
+    public ArrayList<Disease> getSicknessList() {
+        return diseaseList;
     }
 
-    public void setSicknessList(ArrayList<Sickness> sicknessList) {
-        this.sicknessList = sicknessList;
+    public void setSicknessList(ArrayList<Disease> diseaseList) {
+        this.diseaseList = diseaseList;
     }
 
-    public void setMoralIndicator(int moralIndicator) {
+    public int setMoralIndicator(int moralIndicator) {
         this.moralIndicator = moralIndicator;
+        return moralIndicator;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public int setAge(int age) {
         this.age = age;
+        return age;
     }
 
-    public void setHeight(double height) {
+    public double setHeight(double height) {
         this.height = height;
+        return height;
     }
 
-    public void setWeight(double weight) {
+    public double setWeight(double weight) {
         this.weight = weight;
+        return weight;
     }
 
     public String setSex(String sex) {
@@ -96,24 +121,20 @@ public class Creature {
                 ", taille : " + height +
                 ", âge : " + age +
                 ", niveau de moral : " + moralIndicator +
-                ", liste de maladies : " + sicknessList +
-                '}';
+                ", liste de maladies : " + diseaseList +
+                " et la contagiosité est définie sur "+isContagious;
     }
 
-    public ArrayList<Sickness> getSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
-        this.sicknessList.add(sickness);
-        return sicknessList;
+    public ArrayList<Disease> getSickness(ArrayList<Disease> diseaseList, Disease disease){
+        this.diseaseList.add(disease);
+        return diseaseList;
     }
 
-    public void loseSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
-        this.sicknessList.remove(sickness);
+    public void loseSickness(ArrayList<Disease> diseaseList, Disease disease){
+        this.diseaseList.remove(disease);
     }
 
     public String getName(){
         return name;
-    }
-
-    public void die(){
-
     }
 }

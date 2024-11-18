@@ -1,12 +1,12 @@
 package creatures;
 
-public class Sickness {
+public class Disease {
     private String fullName;
     private String name;
     private int currentLevel;
     private int maxLevel;
 
-    public Sickness(String fullName, String name, int currentLevel, int maxLevel) {
+    public Disease(String fullName, String name, int currentLevel, int maxLevel) {
         this.fullName = fullName;
         this.name = name;
         this.currentLevel = currentLevel;
@@ -44,7 +44,7 @@ public class Sickness {
         this.fullName = fullName;
     }
 
-    public boolean isLethal(Sickness sickness){
+    public boolean isLethal(Disease disease){
         boolean isLethal = false;
         if(currentLevel == maxLevel){
             isLethal = true;
