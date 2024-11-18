@@ -1,7 +1,7 @@
 package hospital;
 
 import creatures.Creature;
-import creatures.Sickness;
+import creatures.Disease;
 
 import java.util.ArrayList;
 //import java.util.Random;
@@ -99,13 +99,13 @@ public class MedicalService {
         int present = getNumberOfPresentCreatures() - 1;
         return creatures;
     }
-    public Creature healCreatures(Creature creature, Sickness sickness){
-        ArrayList<Sickness> list = creature.getSicknessList();
-        creature.loseSickness(list,sickness);
+    public Creature healCreatures(Creature creature, Disease disease){
+        ArrayList<Disease> list = creature.getSicknessList();
+        creature.loseSickness(list, disease);
         return creature;
     }
     public String reviewBudget(String budget){
-        // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
+        // le budget doit prendre une valeur pas aléatoire entre inexistant, insuffisant, faible et médiocre
         this.budget = budget;
         return budget;
     }

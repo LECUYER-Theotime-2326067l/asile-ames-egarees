@@ -29,7 +29,7 @@ public class Creature {
         return contagious;
     }
 
-    protected ArrayList<Sickness> sicknessList = new ArrayList<Sickness>();
+    protected ArrayList<Disease> diseaseList = new ArrayList<Disease>();
 
     public String setName(String name) {
         this.name = name;
@@ -52,12 +52,12 @@ public class Creature {
         return moralIndicator;
     }
 
-    public ArrayList<Sickness> getSicknessList() {
-        return sicknessList;
+    public ArrayList<Disease> getSicknessList() {
+        return diseaseList;
     }
 
-    public void setSicknessList(ArrayList<Sickness> sicknessList) {
-        this.sicknessList = sicknessList;
+    public void setSicknessList(ArrayList<Disease> diseaseList) {
+        this.diseaseList = diseaseList;
     }
 
     public int setMoralIndicator(int moralIndicator) {
@@ -121,17 +121,17 @@ public class Creature {
                 ", taille : " + height +
                 ", âge : " + age +
                 ", niveau de moral : " + moralIndicator +
-                ", liste de maladies : " + sicknessList +
+                ", liste de maladies : " + diseaseList +
                 " et la contagiosité est définie sur "+isContagious;
     }
 
-    public ArrayList<Sickness> getSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
-        this.sicknessList.add(sickness);
-        return sicknessList;
+    public ArrayList<Disease> getSickness(ArrayList<Disease> diseaseList, Disease disease){
+        this.diseaseList.add(disease);
+        return diseaseList;
     }
 
-    public void loseSickness(ArrayList<Sickness> sicknessList, Sickness sickness){
-        this.sicknessList.remove(sickness);
+    public void loseSickness(ArrayList<Disease> diseaseList, Disease disease){
+        this.diseaseList.remove(disease);
     }
 
     public String getName(){
