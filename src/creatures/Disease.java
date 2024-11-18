@@ -4,7 +4,7 @@ public class Disease {
     private String fullName;
     private String name;
     private int currentLevel;
-    private int maxLevel;
+    private final int maxLevel;
 
     public Disease(String fullName, String name, int currentLevel, int maxLevel) {
         this.fullName = fullName;

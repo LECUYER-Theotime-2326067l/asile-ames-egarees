@@ -6,16 +6,16 @@ public class Creature {
     protected String name;
     protected String sex;
     protected double weight;
-    protected double height;
+    protected double size;
     protected int age;
     protected int moralIndicator;
     protected boolean isContagious;
 
-    public Creature(String name, String sex, double weight, double height, int age, int moralIndicator, boolean isContagious) {
+    public Creature(String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
         this.name = name;
         this.sex = sex;
         this.weight = weight;
-        this.height = height;
+        this.size = size;
         this.age = age;
         this.moralIndicator = moralIndicator;
         this.isContagious = isContagious;
@@ -44,8 +44,8 @@ public class Creature {
         return weight;
     }
 
-    public double getHeight() {
-        return height;
+    public double getSize() {
+        return size;
     }
 
     public int getMoralIndicator() {
@@ -75,7 +75,7 @@ public class Creature {
     }
 
     public double setHeight(double height) {
-        this.height = height;
+        this.size = height;
         return height;
     }
 
@@ -105,8 +105,7 @@ public class Creature {
         int i=0;
         if(screaming()){
             i++;
-        }
-        if(i==5){
+        } if(i==5){
             System.out.println(this.name + " décide de tabasser quelqu'un avec sa chaise.");
             i = 0;
         }
@@ -118,7 +117,7 @@ public class Creature {
                 name + " : "+'\n'+
                 "sexe : '" + sex + '\'' +
                 ", poids : " + weight +
-                ", taille : " + height +
+                ", taille : " + size +
                 ", âge : " + age +
                 ", niveau de moral : " + moralIndicator +
                 ", liste de maladies : " + diseaseList +
