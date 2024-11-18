@@ -1,14 +1,14 @@
-package creatures;
+package DonneNotable;
 
 public class Disease {
     private String fullName;
-    private String name;
+    private String abbreviatedName;
     private int currentLevel;
     private final int maxLevel;
 
-    public Disease(String fullName, String name, int currentLevel, int maxLevel) {
+    public Disease(String fullName, String abbreviatedName, int currentLevel, int maxLevel) {
         this.fullName = fullName;
-        this.name = name;
+        this.abbreviatedName = abbreviatedName;
         this.currentLevel = currentLevel;
         this.maxLevel = maxLevel;
     }
@@ -28,12 +28,12 @@ public class Disease {
         return currentLevel;
     }
 
-    public String getName() {
-        return name;
+    public String getAbbreviatedName() {
+        return abbreviatedName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAbbreviatedName(String abbreviatedName) {
+        this.abbreviatedName = abbreviatedName;
     }
 
     public String getFullName() {

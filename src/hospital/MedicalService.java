@@ -1,7 +1,7 @@
 package hospital;
 
 import creatures.Creature;
-import creatures.Disease;
+import DonneNotable.Disease;
 
 import java.util.ArrayList;
 //import java.util.Random;
