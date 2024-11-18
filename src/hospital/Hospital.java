@@ -39,7 +39,7 @@ public class Hospital {
     public void setHospitalName(String hospitalName) {
         this.hospitalName = hospitalName;
     }
-    public int presentCreatures(){
+    public int presentCreatures(MedicalService medicalService) {
         int smth = 0;
         for(MedicalService ms : existingMedicalServicesList){
             ms.getCreatures(ms);
