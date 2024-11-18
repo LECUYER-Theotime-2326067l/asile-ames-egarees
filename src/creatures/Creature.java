@@ -1,5 +1,7 @@
 package creatures;
 
+import DonneNotable.Disease;
+
 import java.util.ArrayList;
 
 public class Creature {
