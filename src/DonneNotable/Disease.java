@@ -24,7 +24,9 @@ public class Disease {
     }
 
     public int changeLevel() {
-        currentLevel = maxLevel;
+        if(currentLevel>maxLevel) {
+            currentLevel=maxLevel;
+        };
         return currentLevel;
     }
 

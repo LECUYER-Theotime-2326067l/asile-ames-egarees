@@ -5,13 +5,13 @@ import DonneNotable.Disease;
 import java.util.ArrayList;
 
 public class Creature {
-    protected String name;
-    protected String sex;
-    protected double weight;
-    protected double size;
-    protected int age;
-    protected int moralIndicator;
-    protected boolean isContagious;
+    private String name;
+    private String sex;
+    private double weight;
+    private double size;
+    private int age;
+    private int moralIndicator;
+    private boolean isContagious;
 
     public Creature(String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
         this.name = name;
@@ -31,7 +31,7 @@ public class Creature {
         return contagious;
     }
 
-    protected ArrayList<Disease> diseaseList = new ArrayList<Disease>();
+    private ArrayList<Disease> diseaseList = new ArrayList<Disease>();
 
     public String setName(String name) {
         this.name = name;
@@ -54,11 +54,11 @@ public class Creature {
         return moralIndicator;
     }
 
-    public ArrayList<Disease> getSicknessList() {
+    public ArrayList<Disease> getDiseaseList() {
         return diseaseList;
     }
 
-    public void setSicknessList(ArrayList<Disease> diseaseList) {
+    public void setDiseaseList(ArrayList<Disease> diseaseList) {
         this.diseaseList = diseaseList;
     }
 

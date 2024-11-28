@@ -1,16 +1,27 @@
 package creatures;
 
+import FonctionNotable.Death;
 import hospital.MedicalService;
 
-public class Elf extends Creature {
+public class Elf extends Creature implements Death {
+    MedicalService medicalService;
+    Creature creature;
     public Elf(String name, String sex, double weight, double height, int age) {
         super(name, sex, weight, height, age, 35, false);
     }
 
-    public void die(Elf creature, MedicalService medicalService) {
-        System.out.println(creature.getName()+" est mort, c'était un/une elfe... Par conséquent, ");
-        // démoralise de 2 toutes les créatures du service où il était
-        medicalService.getCreatures();
-        medicalService.removeCreatures(creature);
+//    public void die(Elf creature, MedicalService medicalService) {
+//        System.out.println(creature.getName()+" est mort, c'était un/une elfe... Par conséquent, ");
+//        // démoralise de 2 toutes les créatures du service où il était
+//        medicalService.getCreatures(medicalService);
+//        medicalService.removeCreatures(creature);
+//    }
+
+    @Override
+    public void die() {
+        this.medicalService.getCreatures(medicalService);
+        for(int i=0; i<=3; i++){
+             creature.setMoralIndicator(creature.getMoralIndicator()-2);
+        }
     }
 }

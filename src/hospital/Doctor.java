@@ -44,7 +44,7 @@ public class Doctor {
     }
 
     public MedicalService examineMedicalServiceAndCreatures(MedicalService medicalService) {
-        System.out.println(medicalService.caracteristics());
+        System.out.println(medicalService.characteristics());
         return medicalService;
     }
 

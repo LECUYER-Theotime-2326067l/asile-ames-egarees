@@ -15,6 +15,13 @@ public class MedicalService {
     private String budget;
     private MedicalService medicalService;
 
+    public MedicalService(String name, double surfaceArea, int maxNumberOfCreatures, String budget) {
+        this.name = name;
+        this.surfaceArea = surfaceArea;
+        this.maxNumberOfCreatures = maxNumberOfCreatures;
+//        this.creatures = new ArrayList<>();
+        this.budget = budget;
+    }
     public String getBudget() {
         return budget;
     }
@@ -23,13 +30,12 @@ public class MedicalService {
         this.budget = budget;
     }
 
+    // méthode getCreatures doit récupérer les créatures qui sont présentes dans un même service médical
     public ArrayList<Creature> getCreatures(MedicalService medicalService) {
-        for(Creature creature : creatures) {
-            creature.getAge();
-            creature.getWeight();
-            creature.getSex();
-            creature.getSicknessList();
-            creature.getMoralIndicator();
+        if(/*condition à définir*/){
+            for(Creature creature : creatures) {
+                creature.toString();
+            }
         }
         return creatures;
     }
@@ -78,29 +84,27 @@ public class MedicalService {
                 '.';
     }
 
-    public String caracteristics() {
-        String caracteristics;
-        caracteristics = medicalService.toString();
-        System.out.println(caracteristics);
+    public String characteristics() {
+        String characteristics;
+        characteristics = medicalService.toString();
+        System.out.println(characteristics);
         for(int i=0; i<creatures.size(); i++){
             System.out.println(creatures.get(i).toString());
         }
-        return caracteristics;
+        return characteristics;
     }
-    public ArrayList<Creature> addCreatures(Creature creature) {
+    public int addCreatures(Creature creature) {
         creatures.add(creature);
         System.out.println(creature.getName()+" vient d'arriver.");
-        int present = getNumberOfPresentCreatures()+1;
-        return creatures;
+        return getNumberOfPresentCreatures()+1;
     }
-    public ArrayList<Creature> removeCreatures(Creature creature) {
+    public void removeCreatures(Creature creature) {
         creatures.remove(creature);
         System.out.println(creature.getName()+" est parti.");
         int present = getNumberOfPresentCreatures() - 1;
-        return creatures;
     }
     public Creature healCreatures(Creature creature, Disease disease){
-        ArrayList<Disease> list = creature.getSicknessList();
+        ArrayList<Disease> list = creature.getDiseaseList();
         creature.loseSickness(list, disease);
         return creature;
     }
@@ -109,7 +113,18 @@ public class MedicalService {
         this.budget = budget;
         return budget;
     }
-    public void quarantine(){
-
+    public ArrayList<Creature> quarantine(Creature creature){
+        ArrayList<Creature> creaturesInQuarantine = new ArrayList<>();
+        if(creature.isContagious()){
+            creaturesInQuarantine.add(creature);
+        }
+        return creaturesInQuarantine;
+    }
+    public ArrayList<Creature> crypt(Creature creature){
+        ArrayList<Creature> creaturesInCrypt = new ArrayList<>();
+        if(/*créature régénérante*/){
+            creaturesInCrypt.add(creature);
+        }
+        return creaturesInCrypt;
     }
 }
