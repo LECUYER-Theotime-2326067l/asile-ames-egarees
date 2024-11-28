@@ -4,6 +4,7 @@ import creatures.Creature;
 import DonneNotable.Disease;
 
 import java.util.ArrayList;
+
 //import java.util.Random;
 
 public class MedicalService {
@@ -32,7 +33,7 @@ public class MedicalService {
 
     // méthode getCreatures doit récupérer les créatures qui sont présentes dans un même service médical
     public ArrayList<Creature> getCreatures(MedicalService medicalService) {
-        if(/*condition à définir*/){
+        if(medicalService!=null) {
             for(Creature creature : creatures) {
                 creature.toString();
             }
@@ -122,7 +123,7 @@ public class MedicalService {
     }
     public ArrayList<Creature> crypt(Creature creature){
         ArrayList<Creature> creaturesInCrypt = new ArrayList<>();
-        if(/*créature régénérante*/){
+        if(creature.getClass().equals("Zombie")||creature.getClass().equals("Vampire")){
             creaturesInCrypt.add(creature);
         }
         return creaturesInCrypt;

@@ -94,24 +94,24 @@ public class Creature {
         this.moralIndicator--;
     }
 
-    public boolean screaming(){
-        boolean screaming = false;
-        if(this.moralIndicator == 0){
-            System.out.println(this.name + " hurle");
-            screaming = true;
-        }
-        return screaming;
-    }
+//    public boolean screaming(){
+//        boolean screaming = false;
+//        if(this.moralIndicator == 0){
+//            System.out.println(this.name + " hurle");
+//            screaming = true;
+//        }
+//        return screaming;
+//    }
 
-    public void getAngry(){
-        int i=0;
-        if(screaming()){
-            i++;
-        } if(i==5){
-            System.out.println(this.name + " décide de tabasser quelqu'un avec sa chaise.");
-            i = 0;
-        }
-    }
+//    public void getAngry(){
+//        int i=0;
+//        if(screaming()){
+//            i++;
+//        } if(i==5){
+//            System.out.println(this.name + " décide de tabasser quelqu'un avec sa chaise.");
+//            i = 0;
+//        }
+//    }
 
     @Override
     public String toString() {
