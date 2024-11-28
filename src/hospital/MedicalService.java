@@ -15,6 +15,8 @@ public class MedicalService {
     private ArrayList<Creature> creatures;
     private String budget;
     private MedicalService medicalService;
+    private int zombieNumber;
+    private int orcNumber;
 
     public MedicalService(String name, double surfaceArea, int maxNumberOfCreatures, String budget) {
         this.name = name;
@@ -94,26 +96,44 @@ public class MedicalService {
         }
         return characteristics;
     }
+
+    public int getZombieNumber() {
+        return zombieNumber;
+    }
+
+    public void setZombieNumber(int zombieNumber) {
+        this.zombieNumber = zombieNumber;
+    }
+
     public int addCreatures(Creature creature) {
         creatures.add(creature);
         System.out.println(creature.getName()+" vient d'arriver.");
+        if(creature.getClass().equals("Zombie")){
+            zombieNumber++;
+        } else if(creature.getClass().equals("Orc")){
+            orcNumber++;
+        }
         return getNumberOfPresentCreatures()+1;
     }
+
     public void removeCreatures(Creature creature) {
         creatures.remove(creature);
         System.out.println(creature.getName()+" est parti.");
         int present = getNumberOfPresentCreatures() - 1;
     }
+
     public Creature healCreatures(Creature creature, Disease disease){
         ArrayList<Disease> list = creature.getDiseaseList();
         creature.loseSickness(list, disease);
         return creature;
     }
+
     public String reviewBudget(String budget){
         // le budget doit prendre une valeur pas aléatoire entre inexistant, insuffisant, faible et médiocre
         this.budget = budget;
         return budget;
     }
+
     public ArrayList<Creature> quarantine(Creature creature){
         ArrayList<Creature> creaturesInQuarantine = new ArrayList<>();
         if(creature.isContagious()){
@@ -121,11 +141,16 @@ public class MedicalService {
         }
         return creaturesInQuarantine;
     }
+
     public ArrayList<Creature> crypt(Creature creature){
         ArrayList<Creature> creaturesInCrypt = new ArrayList<>();
         if(creature.getClass().equals("Zombie")||creature.getClass().equals("Vampire")){
             creaturesInCrypt.add(creature);
         }
         return creaturesInCrypt;
+    }
+
+    public int getOrcNumber() {
+        return orcNumber;
     }
 }

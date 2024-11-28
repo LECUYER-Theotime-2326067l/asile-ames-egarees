@@ -22,6 +22,7 @@ public class Creature {
         this.moralIndicator = moralIndicator;
         this.isContagious = isContagious;
     }
+
     public boolean isContagious() {
         return isContagious;
     }
@@ -90,9 +91,9 @@ public class Creature {
         return this.sex = sex;
     }
 
-    public void waiting(){
-        this.moralIndicator--;
-    }
+//    public void waiting(){
+//        this.moralIndicator = moralIndicator-5;
+//    }
 
 //    public boolean screaming(){
 //        boolean screaming = false;

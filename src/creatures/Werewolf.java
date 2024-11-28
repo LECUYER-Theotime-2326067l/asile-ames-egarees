@@ -2,7 +2,12 @@ package creatures;
 
 //import FonctionNotable.Scream;
 
-public class Werewolf extends Creature {
+import FonctionNotable.Contamination;
+import FonctionNotable.Death;
+import FonctionNotable.Scream;
+import FonctionNotable.Wait;
+
+public class Werewolf extends Creature implements Wait, Death, Scream, Contamination {
     private String ageCategory;
     private int strength;
     private int dominationFactor;
@@ -26,5 +31,30 @@ public class Werewolf extends Creature {
                 ", impetuosityFactor=" + impetuosityFactor +
                 ", pack='" + pack + '\'' +
                 '}';
+    }
+
+    @Override
+    public void contamination() {
+
+    }
+
+    @Override
+    public void die() {
+
+    }
+
+    @Override
+    public boolean scream() {
+        return false;
+    }
+
+    @Override
+    public void getAngry() {
+
+    }
+
+    @Override
+    public void waiting() {
+
     }
 }

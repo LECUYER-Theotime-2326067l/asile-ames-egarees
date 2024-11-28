@@ -2,13 +2,15 @@ package creatures;
 
 import FonctionNotable.Death;
 import FonctionNotable.Scream;
+import FonctionNotable.Wait;
 import hospital.MedicalService;
 
-public class Elf extends Creature implements Death, Scream {
+public class Elf extends Creature implements Death, Scream, Wait {
     MedicalService medicalService;
-    Creature creature;
+    Elf creature;
+
     public Elf(String name, String sex, double weight, double height, int age) {
-        super(name, sex, weight, height, age, 35, false);
+        super(name, sex, weight, height, age, 100, false);
     }
 
 //    public void die(Elf creature, MedicalService medicalService) {
@@ -20,17 +22,19 @@ public class Elf extends Creature implements Death, Scream {
 
     @Override
     public void die() {
+        // démoralise 3 créatures du même service médical à sa mort.
         this.medicalService.getCreatures(medicalService);
         for(int i=0; i<=3; i++){
              creature.setMoralIndicator(creature.getMoralIndicator()-2);
         }
+        this.medicalService.removeCreatures(this);
     }
 
     @Override
     public boolean scream() {
         boolean scream = false;
         for (Creature creature : this.medicalService.getCreatures(medicalService)) {
-            if (creature.getMoralIndicator() == 0) {
+            if (creature.getMoralIndicator() < 10) {
                 System.out.println(creature.getName() + " :  [censuré].");
                 scream = true;
             }
@@ -46,5 +50,10 @@ public class Elf extends Creature implements Death, Scream {
         } if(i==5){
             System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
         }
+    }
+
+    @Override
+    public void waiting() {
+        this.setMoralIndicator(getMoralIndicator()-10);
     }
 }
