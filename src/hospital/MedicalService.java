@@ -22,7 +22,7 @@ public class MedicalService {
         this.name = name;
         this.surfaceArea = surfaceArea;
         this.maxNumberOfCreatures = maxNumberOfCreatures;
-//        this.creatures = new ArrayList<>();
+        this.creatures = new ArrayList<>();
         this.budget = budget;
     }
     public String getBudget() {

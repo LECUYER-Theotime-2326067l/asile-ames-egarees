@@ -1,18 +1,24 @@
 package creatures;
 
+import DonneNotable.Disease;
 import FonctionNotable.Contamination;
 import FonctionNotable.Death;
 import FonctionNotable.Scream;
 import FonctionNotable.Wait;
 import hospital.MedicalService;
 
-public class Beastman extends Creature implements Scream, Wait, Death, Contamination {
+public class Beastman extends Creature implements Scream, Wait, Death{
     MedicalService medicalService;
     Beastman creature;
+    String type = "Beastman";
+
     public Beastman(String name, String sex, double weight, double size, int age) {
         super(name, sex, weight, size, age, 60, true);
     }
 
+    public String getType(){
+        return type;
+    }
     @Override
     public void die() {
         this.medicalService.removeCreatures(this);
@@ -32,11 +38,15 @@ public class Beastman extends Creature implements Scream, Wait, Death, Contamina
 
     @Override
     public void getAngry() {
-        int i=0;
-        if(scream()){
-            i++;
-        } if(i==5){
-            System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
+        int i = 0;
+        while(true) {
+            if(scream()){
+                i++;
+                if(i==5){
+                    System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
+                    i=0;
+                }
+            }
         }
     }
 
@@ -49,8 +59,13 @@ public class Beastman extends Creature implements Scream, Wait, Death, Contamina
         }
     }
 
-    @Override
-    public void contamination() {
-
-    }
+//    @Override
+//    public void contamination() {
+//        for(Creature creature : this.medicalService.getCreatures(medicalService)){
+//            if(creature.getMoralIndicator()<15){
+//                Disease disease;
+//                creature.getSickness(getDiseaseList(), disease);
+//            }
+//        }
+//    }
 }

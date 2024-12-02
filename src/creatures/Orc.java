@@ -9,6 +9,7 @@ import hospital.MedicalService;
 public class Orc extends Creature implements Scream, Wait, Death, Contamination {
     MedicalService medicalService;
     Orc creature;
+    String type = "Orc";
     public Orc(String name, String sex, double weight, double size, int age) {
         super(name, sex, weight, size, age, 40, false);
     }
@@ -24,7 +25,9 @@ public class Orc extends Creature implements Scream, Wait, Death, Contamination 
         }
         return scream;
     }
-
+    public String getType(){
+        return type;
+    }
     @Override
     public void getAngry() {
         int i=0;

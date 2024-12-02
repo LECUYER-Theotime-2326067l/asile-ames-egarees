@@ -6,9 +6,10 @@ import FonctionNotable.Scream;
 import FonctionNotable.Wait;
 import hospital.MedicalService;
 
-public class Zombie extends Creature implements Revive, Death, Wait, Scream {
+public class Zombie extends Creature implements Revive, Death, Wait {
     MedicalService medicalService;
     Zombie creature;
+    String type = "Zombie";
 
     public Zombie(String name, String sex, double weight, double height, int age) {
         super(name, sex, weight, height, age, 100, false);
@@ -20,7 +21,9 @@ public class Zombie extends Creature implements Revive, Death, Wait, Scream {
             revive();
         }
     }
-
+    public String getType(){
+        return type;
+    }
     @Override
     public void revive() {
         setMoralIndicator(100);
@@ -35,25 +38,25 @@ public class Zombie extends Creature implements Revive, Death, Wait, Scream {
         }
     }
 
-    @Override
-    public boolean scream() {
-        boolean scream = false;
-        for (Creature creature : this.medicalService.getCreatures(medicalService)) {
-            if (creature.getMoralIndicator() < 15) {
-                System.out.println(creature.getName() + " :  Uhhhhhh... Argh ohhh.");
-                scream = true;
-            }
-        }
-        return scream;
-    }
-
-    @Override
-    public void getAngry() {
-        int i=0;
-        if(scream()){
-            i++;
-        } if(i==5){
-            System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
-        }
-    }
+//    @Override
+//    public boolean scream() {
+//        boolean scream = false;
+//        for (Creature creature : this.medicalService.getCreatures(medicalService)) {
+//            if (creature.getMoralIndicator() < 15) {
+//                System.out.println(creature.getName() + " :  Uhhhhhh... Argh ohhh.");
+//                scream = true;
+//            }
+//        }
+//        return scream;
+//    }
+//
+//    @Override
+//    public void getAngry() {
+//        int i=0;
+//        if(scream()){
+//            i++;
+//        } if(i==5){
+//            System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
+//        }
+//    }
 }

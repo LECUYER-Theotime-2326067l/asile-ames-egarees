@@ -1,6 +1,6 @@
 package creatures;
 
-import DonneNotable.Disease;
+import DonneNotable.*;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,8 @@ public class Creature {
     private int age;
     private int moralIndicator;
     private boolean isContagious;
-
+    ScreamAngry screamAngry;
+    private ArrayList<Disease> diseaseList;
     public Creature(String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
         this.name = name;
         this.sex = sex;
@@ -21,7 +22,20 @@ public class Creature {
         this.age = age;
         this.moralIndicator = moralIndicator;
         this.isContagious = isContagious;
+        this.diseaseList = new ArrayList<>();
     }
+
+    public boolean getScream(){
+        return screamAngry.scream();
+    }
+
+    public void getAngry(){
+        screamAngry.getAngry();
+    }
+
+//    public static String getType(){
+//        return this.type;
+//    }
 
     public boolean isContagious() {
         return isContagious;
@@ -31,8 +45,6 @@ public class Creature {
         isContagious = contagious;
         return contagious;
     }
-
-    private ArrayList<Disease> diseaseList = new ArrayList<Disease>();
 
     public String setName(String name) {
         this.name = name;
@@ -56,6 +68,9 @@ public class Creature {
     }
 
     public ArrayList<Disease> getDiseaseList() {
+        for(Disease disease : diseaseList){
+            System.out.println(disease);
+        }
         return diseaseList;
     }
 
@@ -63,9 +78,8 @@ public class Creature {
         this.diseaseList = diseaseList;
     }
 
-    public int setMoralIndicator(int moralIndicator) {
+    public void setMoralIndicator(int moralIndicator) {
         this.moralIndicator = moralIndicator;
-        return moralIndicator;
     }
 
     public int getAge() {
@@ -114,20 +128,7 @@ public class Creature {
 //        }
 //    }
 
-    @Override
-    public String toString() {
-        return "Caractéristiques de " +
-                name + " : "+'\n'+
-                "sexe : '" + sex + '\'' +
-                ", poids : " + weight +
-                ", taille : " + size +
-                ", âge : " + age +
-                ", niveau de moral : " + moralIndicator +
-                ", liste de maladies : " + diseaseList +
-                " et la contagiosité est définie sur "+isContagious;
-    }
-
-    public ArrayList<Disease> getSickness(ArrayList<Disease> diseaseList, Disease disease){
+    public ArrayList<Disease> getSickness(Disease disease){
         this.diseaseList.add(disease);
         return diseaseList;
     }

@@ -6,10 +6,10 @@ public class Disease {
     private int currentLevel;
     private final int maxLevel;
 
-    public Disease(String fullName, String abbreviatedName, int currentLevel, int maxLevel) {
+    public Disease(String fullName, String abbreviatedName, int maxLevel) {
         this.fullName = fullName;
         this.abbreviatedName = abbreviatedName;
-        this.currentLevel = currentLevel;
+        this.currentLevel = 0;
         this.maxLevel = maxLevel;
     }
 
@@ -53,5 +53,9 @@ public class Disease {
             System.out.println("Le niveau de la maladie est létal.");
         }
         return isLethal;
+    }
+
+    public String toString() {
+        return "0";
     }
 }

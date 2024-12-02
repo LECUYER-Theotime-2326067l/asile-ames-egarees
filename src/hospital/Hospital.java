@@ -3,10 +3,16 @@ package hospital;
 import java.util.ArrayList;
 
 public class Hospital {
-    private String hospitalName;
+    private String hospitalName="un nom";
     private int maxMedicalService;
     private ArrayList<MedicalService> existingMedicalServicesList;
     private ArrayList<Doctor> doctorList;
+
+    public Hospital(String hospitalName, int maxMedicalService) {
+        this.hospitalName = hospitalName;
+        this.maxMedicalService = maxMedicalService;
+        this.existingMedicalServicesList = new ArrayList<>();
+    }
 
     public ArrayList<Doctor> getDoctorList() {
         return doctorList;
@@ -46,5 +52,8 @@ public class Hospital {
             smth++;
         }
         return smth;
+    }
+    public void addMedicalService(MedicalService medicalService) {
+        existingMedicalServicesList.add(medicalService);
     }
 }

@@ -8,6 +8,7 @@ import hospital.MedicalService;
 public class Elf extends Creature implements Death, Scream, Wait {
     MedicalService medicalService;
     Elf creature;
+    String type = "Elf";
 
     public Elf(String name, String sex, double weight, double height, int age) {
         super(name, sex, weight, height, age, 100, false);
@@ -50,6 +51,10 @@ public class Elf extends Creature implements Death, Scream, Wait {
         } if(i==5){
             System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
         }
+    }
+
+    public String getType(){
+        return type;
     }
 
     @Override
