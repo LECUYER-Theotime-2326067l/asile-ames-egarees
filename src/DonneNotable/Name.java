@@ -4,25 +4,22 @@ import java.util.Random;
 
 public class Name {
     private String name;
-    private String abbreviatedName;
-    private String fullName;
     private final Random rand = new Random();
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 
     public String nameMale() {
         String[] listeName = {
                 "Pedro", "Pablo", "Picasso", "Poteto", "Palourde",
                 "Tristanou", "Torentino", "Carlos", "Hazak", "Maxou",
-                "Piksou", "Leon", "Lorent", "Titeuf", "Liam", "Noah", "Oliver", "Elijah", "James",
+                "Piksou", "Leon", "Lorent", "Titeuf", "Liam", "Noah",
+                "Oliver", "Elijah", "James",
                 "William", "Benjamin", "Lucas", "Henry", "Alexander",
-                "Jack", "Daniel", "Matthew", "Samuel", "Sebastian", "Arannis", ""
+                "Jack", "Daniel", "Matthew", "Samuel", "Sebastian",
+                "Arannis", "Durin", "Dupont",
+                "Grom", "Drogar", "Grunk", "Morkar", "Balar", "Ferk",
+                "Zed", "Raze", "Jax", "Jack",
+                "Lucien", "Draken", "Valerius", "Alaric", "Zephyr",
+                "Vladimir", "Draxar", "Fenrir",
+                "Ulfric", "Korrin"
         };
         this.name = listeName[rand.nextInt(listeName.length)];
         return this.name;
@@ -32,9 +29,16 @@ public class Name {
         String[] listeName = {
                 "Sophia", "Emma", "Isabella", "Olivia", "Mia",
                 "Amelia", "Charlotte", "Ava", "Chloe", "Luna",
-                "Layla", "Zoe", "Aria", "Lily", "Aurora", "Pénélope", "Marilou", "Camélia", "Potiche", "Clarinette",
+                "Layla", "Zoe", "Aria", "Lily", "Aurora", "Pénélope", "Marilou",
+                "Camélia", "Potiche", "Clarinette",
                 "Biscotte", "Joséphine", "Papaye", "Fifinette", "Bulle",
-                "Clémentine", "Rosinette", "Tartine", "Pirouette", "Zazou"
+                "Clémentine", "Rosinette", "Tartine", "Pirouette", "Zazou",
+                "Aeliana", "Celebrielle", "Elaria", "Galadrielle",
+                "Bruni", "Balina", "Thalia", "Dorama", "Gilda", "Ragna",
+                "Norina", "Lurga", "Urka", "Zorra", "Draga", "Thalira",
+                "Grissa", "Morgana", "Lilith", "Trina", "Isabella", "Morgane",
+                "Raven", "Seraphina", "Valentina", "Freya",
+                "Astrid", "Lyra", "Sigrid", "Thessa", "Zylara"
         };
         this.name = listeName[rand.nextInt(listeName.length)];
         return this.name;
@@ -48,11 +52,4 @@ public class Name {
         this.name = name;
     }
 
-    public String getAbbreviatedName() {
-        return abbreviatedName;
-    }
-
-    public void setAbbreviatedName(String abbreviatedName) {
-        this.abbreviatedName = abbreviatedName;
-    }
 }
