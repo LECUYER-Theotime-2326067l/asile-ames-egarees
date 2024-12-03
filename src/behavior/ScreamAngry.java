@@ -1,12 +1,14 @@
-package creatures;
+package behavior;
 
 import FonctionNotable.Scream;
+import creatures.Creature;
+import creatures.Elf;
 import hospital.MedicalService;
 
 public class ScreamAngry implements Scream {
-    MedicalService medicalService;
-    Creature creature;
-    String type = Creature.class.getTypeName();
+    MedicalService medicalService;//bullshit
+    Creature creature;//bullshit
+    String type = creature.getClass().getSimpleName();
     @Override
     public boolean scream() {
         boolean scream = false;
@@ -45,8 +47,8 @@ public class ScreamAngry implements Scream {
             System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
         }
     }
-    public static void main(String[] args) {
-        Creature oui = new Elf("bonjour", "femelle", 8, 2, 680);
-        System.out.println(oui);
-    }
+//    public static void main(String[] args) {
+//        Creature oui = new Elf("bonjour", "femelle", 8, 2, 680);
+//        System.out.println(oui);
+//    }
 }

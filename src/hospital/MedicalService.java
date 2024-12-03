@@ -1,17 +1,15 @@
 package hospital;
 
 import creatures.Creature;
-import DonneNotable.Disease;
+import DonneNotable.*;
 
 import java.util.ArrayList;
-
-//import java.util.Random;
 
 public class MedicalService {
     private String name;
     private double surfaceArea;
     private int maxNumberOfCreatures;
-    private int numberOfPresentCreatures;
+    private final int numberOfPresentCreatures;
     private ArrayList<Creature> creatures;
     private String budget;
     private MedicalService medicalService;
@@ -24,6 +22,9 @@ public class MedicalService {
         this.maxNumberOfCreatures = maxNumberOfCreatures;
         this.creatures = new ArrayList<>();
         this.budget = budget;
+        this.numberOfPresentCreatures = 0;
+        this.zombieNumber = 0;
+        this.orcNumber = 0;
     }
     public String getBudget() {
         return budget;
@@ -46,6 +47,7 @@ public class MedicalService {
     public void setCreatures(ArrayList<Creature> creatures) {
         this.creatures = creatures;
     }
+
 
     public int getNumberOfPresentCreatures() {
         return numberOfPresentCreatures;
@@ -122,12 +124,6 @@ public class MedicalService {
         int present = getNumberOfPresentCreatures() - 1;
     }
 
-    public Creature healCreatures(Creature creature, Disease disease){
-        ArrayList<Disease> list = creature.getDiseaseList();
-        creature.loseSickness(list, disease);
-        return creature;
-    }
-
     public String reviewBudget(String budget){
         // le budget doit prendre une valeur pas aléatoire entre inexistant, insuffisant, faible et médiocre
         this.budget = budget;
@@ -149,7 +145,12 @@ public class MedicalService {
         }
         return creaturesInCrypt;
     }
-
+    public String getAllCreatures(){
+        for(Creature creature : creatures){
+            System.out.println(creature.toString()+"\n");
+        }
+        return "\n";
+    }
     public int getOrcNumber() {
         return orcNumber;
     }

@@ -7,7 +7,6 @@ import hospital.MedicalService;
 
 public class Dwarf extends Creature implements Death, Wait {
     MedicalService medicalService;
-    Dwarf creature;
     String type = "Dwarf";
     public Dwarf(String name, String sex, double weight, double size, int age) {
         super(name, sex, weight, size, age, 100, false);
@@ -42,8 +41,16 @@ public class Dwarf extends Creature implements Death, Wait {
 //        }
 //    }
 
+
     @Override
     public void waiting() {
         this.setMoralIndicator(getMoralIndicator()-10);
+    }
+
+    @Override
+    public String toString() {
+        return "Dwarf{" +
+                "type='" + type + '\'' +
+                '}';
     }
 }

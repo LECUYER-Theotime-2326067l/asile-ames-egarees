@@ -1,6 +1,7 @@
 package creatures;
 
 import DonneNotable.*;
+import behavior.ScreamAngry;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class Creature {
     private boolean isContagious;
     ScreamAngry screamAngry;
     private ArrayList<Disease> diseaseList;
+
     public Creature(String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
         this.name = name;
         this.sex = sex;
@@ -25,6 +27,31 @@ public class Creature {
         this.diseaseList = new ArrayList<>();
     }
 
+    public Creature healCreatures(Creature creature, Disease disease){
+        ArrayList<Disease> list = getDiseaseList();
+        if(disease.getCurrentLevel()==0){
+            creature.loseSickness(disease);
+        } else {
+            disease.setCurrentLevel(disease.getCurrentLevel()-1);
+        }
+        return creature;
+    }
+
+    public int beMoreSick(Creature creature, Disease disease){
+        int life;
+        for(int i=0; i<=getDiseaseList().size(); i++){
+            if(disease==getDiseaseList().get(i)){
+                disease.increaseLevel();
+            }
+        }
+        life = disease.getCurrentLevel();
+        return life;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
     public boolean getScream(){
         return screamAngry.scream();
     }
@@ -32,10 +59,6 @@ public class Creature {
     public void getAngry(){
         screamAngry.getAngry();
     }
-
-//    public static String getType(){
-//        return this.type;
-//    }
 
     public boolean isContagious() {
         return isContagious;
@@ -105,39 +128,31 @@ public class Creature {
         return this.sex = sex;
     }
 
-//    public void waiting(){
-//        this.moralIndicator = moralIndicator-5;
-//    }
-
-//    public boolean screaming(){
-//        boolean screaming = false;
-//        if(this.moralIndicator == 0){
-//            System.out.println(this.name + " hurle");
-//            screaming = true;
-//        }
-//        return screaming;
-//    }
-
-//    public void getAngry(){
-//        int i=0;
-//        if(screaming()){
-//            i++;
-//        } if(i==5){
-//            System.out.println(this.name + " décide de tabasser quelqu'un avec sa chaise.");
-//            i = 0;
-//        }
-//    }
-
     public ArrayList<Disease> getSickness(Disease disease){
         this.diseaseList.add(disease);
         return diseaseList;
     }
 
-    public void loseSickness(ArrayList<Disease> diseaseList, Disease disease){
+    public void loseSickness(Disease disease){
         this.diseaseList.remove(disease);
     }
 
     public String getName(){
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Creature{" +
+                "name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", weight=" + weight +
+                ", size=" + size +
+                ", age=" + age +
+                ", moralIndicator=" + moralIndicator +
+                ", isContagious=" + isContagious +
+                ", screamAngry=" + screamAngry +
+                ", diseaseList=" + diseaseList +
+                '}';
     }
 }
