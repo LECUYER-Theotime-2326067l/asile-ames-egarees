@@ -1,12 +1,13 @@
 package DonneNotable;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Name {
-    private String name;
-    private final Random rand = new Random();
+    private static String name;
+    private static final Random rand = new Random();
 
-    public String nameMale() {
+    public static String nameMale() {
         String[] listeName = {
                 "Pedro", "Pablo", "Picasso", "Poteto", "Palourde",
                 "Tristanou", "Torentino", "Carlos", "Hazak", "Maxou",
@@ -21,11 +22,11 @@ public class Name {
                 "Vladimir", "Draxar", "Fenrir",
                 "Ulfric", "Korrin"
         };
-        this.name = listeName[rand.nextInt(listeName.length)];
-        return this.name;
+        name = listeName[rand.nextInt(listeName.length)];
+        return name;
     }
 
-    public String nameFemale() {
+    public static String nameFemale() {
         String[] listeName = {
                 "Sophia", "Emma", "Isabella", "Olivia", "Mia",
                 "Amelia", "Charlotte", "Ava", "Chloe", "Luna",
@@ -40,8 +41,21 @@ public class Name {
                 "Raven", "Seraphina", "Valentina", "Freya",
                 "Astrid", "Lyra", "Sigrid", "Thessa", "Zylara"
         };
-        this.name = listeName[rand.nextInt(listeName.length)];
-        return this.name;
+        name = listeName[rand.nextInt(listeName.length)];
+        return name;
+    }
+
+    public static String generateName(String sex) {
+        if (Objects.equals(sex, "H")){
+            name = nameMale();
+        }
+        else if (Objects.equals(sex, "F")){
+            name = nameFemale();
+        }
+        else {
+            name = "Error Name";
+        }
+        return name;
     }
 
     public String getName() {

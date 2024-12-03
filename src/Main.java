@@ -1,4 +1,4 @@
-import DonneNotable.Disease;
+import DonneNotable.*;
 import creatures.Creature;
 import creatures.Dwarf;
 import hospital.Hospital;
@@ -8,11 +8,12 @@ public class Main {
     public static void main(String[] args) {
         Hospital hospital = new Hospital("nom", 10);
         Disease disease = new Disease("Fear Of Missing Out", "FOMO");
-        Creature creature = new Dwarf("1", "F", 18.3, 90, 22);
+        Creature creature = new Dwarf(Name.generateName(Sex.generateSex()), Sex.generateSex(), Weight.generateWeight("Dwarf"), Size.generateSize("Dwarf"), Age.generateAge("Dwarf"));
         MedicalService medicalService = new MedicalService("1", 1200, 2, "insuffisant");
         hospital.addMedicalService(medicalService);
         medicalService.addCreatures(creature);
         creature.getSickness(disease);
         creature.getDiseaseList();
+        System.out.println(creature);
     }
 }

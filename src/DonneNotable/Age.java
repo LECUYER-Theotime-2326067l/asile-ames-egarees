@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Age {
     private int age;
-    private String type;
-    private Random rand = new Random();
+    private static String type;
+    private static Random rand = new Random();
 
     public int getAge() {
         return age;
@@ -15,7 +15,7 @@ public class Age {
         this.age = age;
     }
 
-    public int generateAge() {
+    public static int generateAge(String type) {
         switch (type.toLowerCase()) {
             case "human":
                 return rand.nextInt(18, 100);
