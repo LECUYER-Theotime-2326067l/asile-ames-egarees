@@ -27,7 +27,7 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
         // démoralise 3 créatures du même service médical à sa mort.
         this.medicalService.getCreatures(medicalService);
         for(int i=0; i<=3; i++){
-             demoralise();
+             demoraliseAllCreatures();
         }
         this.medicalService.removeCreatures(this);
     }
@@ -64,7 +64,7 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
     }
 
     @Override
-    public void demoralise() {
+    public void demoraliseAllCreatures() {
         for(Creature creature : medicalService.getCreatures(medicalService)){
             creature.setMoralIndicator(creature.getMoralIndicator()-2);
         }

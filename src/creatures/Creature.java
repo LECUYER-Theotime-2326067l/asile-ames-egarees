@@ -1,11 +1,11 @@
 package creatures;
 
 import DonneNotable.*;
-import behavior.ScreamAngry;
+import FonctionNotable.Scream;
 
 import java.util.ArrayList;
 
-public class Creature {
+public class Creature implements Scream {
     private String name;
     private String sex;
     private double weight;
@@ -13,7 +13,6 @@ public class Creature {
     private int age;
     private int moralIndicator;
     private boolean isContagious;
-    ScreamAngry screamAngry;
     private ArrayList<Disease> diseaseList;
     String type;
 
@@ -58,12 +57,41 @@ public class Creature {
         this.size = size;
     }
 
-    public boolean getScream(){
-        return screamAngry.scream();
+    @Override
+    public boolean scream() {
+        boolean scream = false;
+        if (getMoralIndicator() < 15) {
+            switch (getType()) {
+                case "Beastman":
+                    System.out.println(getName() + " :  Grrrrrrrrrrrrrrrrr");
+                case "Dwarf":
+                    System.out.println(getName() + " :  Ce *** ose me faire attendre ?! QUEL FILS DE [ceci a été volontairement censuré].");
+                case "Elf":
+                    System.out.println(getName() + " :  [censuré].");
+                case "Reptilian":
+                    System.out.println(getName() + " :  Ssssssssssss");
+                case "Orc":
+                    System.out.println(getName() + " :  Ouaf!");
+                case "Vampire":
+                    System.out.println(getName() + " :  ...");
+                case "Zombie":
+                    System.out.println(getName() + " :  Uhhhhhh... Argh ohhh.");
+                case "Werewolf":
+                    System.out.println(getName() + " :  AOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+            }
+            scream = true;
+        }
+        return scream;
     }
 
     public void getAngry(){
-        screamAngry.getAngry();
+        int i = 0;
+        if (scream()) {
+            i++;
+        }
+        if (i == 5) {
+            System.out.println(getName() + " décide de tabasser quelqu'un avec sa chaise.");
+        }
     }
 
     public boolean isContagious() {
@@ -157,7 +185,6 @@ public class Creature {
                 ", age=" + age +
                 ", moralIndicator=" + moralIndicator +
                 ", isContagious=" + isContagious +
-                ", screamAngry=" + screamAngry +
                 ", diseaseList=" + diseaseList +
                 '}';
     }

@@ -7,8 +7,6 @@ import FonctionNotable.Wait;
 import hospital.MedicalService;
 
 public class Zombie extends Creature implements Revive, Death, Wait {
-    MedicalService medicalService;
-    Zombie creature;
     String type = "Zombie";
 
     public Zombie(String name, String sex, double weight, double height, int age) {
@@ -31,7 +29,7 @@ public class Zombie extends Creature implements Revive, Death, Wait {
 
     @Override
     public void waiting() {
-        if(medicalService.getZombieNumber()>1){
+        if(MedicalService.getZombieNumber()>1){
             this.setMoralIndicator(getMoralIndicator()-2);
         } else {
             this.setMoralIndicator(getMoralIndicator()-5);

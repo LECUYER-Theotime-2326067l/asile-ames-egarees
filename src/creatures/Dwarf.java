@@ -8,9 +8,11 @@ import hospital.MedicalService;
 public class Dwarf extends Creature implements Death, Wait {
     MedicalService medicalService;
 //    String type = "Dwarf";
+
     public Dwarf(String name, String sex, double weight, double size, int age) {
         super("Dwarf", name, sex, weight, size, age, 100, false);
     }
+
 //    public String getType(){
 //        return type;
 //    }

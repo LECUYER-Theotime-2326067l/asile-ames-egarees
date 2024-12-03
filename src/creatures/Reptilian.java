@@ -1,11 +1,9 @@
 package creatures;
 
-import FonctionNotable.Death;
-import FonctionNotable.Scream;
-import FonctionNotable.Wait;
+import FonctionNotable.*;
 import hospital.MedicalService;
 
-public class Reptilian extends Creature implements Death, Scream, Wait {
+public class Reptilian extends Creature implements Death, Wait {
     MedicalService medicalService;
     Reptilian creature;
 //    String type = "Reptilian";
@@ -21,27 +19,6 @@ public class Reptilian extends Creature implements Death, Scream, Wait {
         this.medicalService.removeCreatures(this);
     }
 
-    @Override
-    public boolean scream() {
-        boolean scream = false;
-        for (Creature creature : this.medicalService.getCreatures(medicalService)) {
-            if (creature.getMoralIndicator() < 15) {
-                System.out.println(creature.getName() + " :  Ssssssssssss");
-                scream = true;
-            }
-        }
-        return scream;
-    }
-
-    @Override
-    public void getAngry() {
-        int i=0;
-        if(scream()){
-            i++;
-        } if(i==5){
-            System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
-        }
-    }
 
     @Override
     public void waiting() {

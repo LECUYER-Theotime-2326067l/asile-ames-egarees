@@ -6,8 +6,9 @@ import FonctionNotable.Contamination;
 import FonctionNotable.Death;
 import FonctionNotable.Scream;
 import FonctionNotable.Wait;
+import hospital.MedicalService;
 
-public class Werewolf extends Creature implements Wait, Death, Scream, Contamination {
+public class Werewolf extends Creature implements Wait, Death, Contamination {
     private String ageCategory;
     private int strength;
     private int dominationFactor;
@@ -47,17 +48,11 @@ public class Werewolf extends Creature implements Wait, Death, Scream, Contamina
     }
 
     @Override
-    public boolean scream() {
-        return false;
-    }
-
-    @Override
-    public void getAngry() {
-
-    }
-
-    @Override
     public void waiting() {
-
+        if(MedicalService.getWerewolfNumber()>1){
+            this.setMoralIndicator(getMoralIndicator()-2);
+        } else {
+            this.setMoralIndicator(getMoralIndicator()-5);
+        }
     }
 }

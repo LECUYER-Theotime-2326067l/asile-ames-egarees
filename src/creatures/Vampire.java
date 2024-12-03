@@ -6,7 +6,7 @@ import hospital.MedicalService;
 
 import java.util.ArrayList;
 
-public class Vampire extends Creature implements Death, Wait, Scream, Contamination, Revive {
+public class Vampire extends Creature implements Death, Wait, Contamination, Revive {
     MedicalService medicalService;
     Vampire creature;
 //    String type = "Vampire";
@@ -29,28 +29,6 @@ public class Vampire extends Creature implements Death, Wait, Scream, Contaminat
     public void die() {
         if(getMoralIndicator()==0){
             revive();
-        }
-    }
-
-    @Override
-    public boolean scream() {
-        boolean scream = false;
-        for (Creature creature : this.medicalService.getCreatures(medicalService)) {
-            if (creature.getMoralIndicator() < 20) {
-                System.out.println(creature.getName() + " :  ...");
-                scream = true;
-            }
-        }
-        return scream;
-    }
-
-    @Override
-    public void getAngry() {
-        int i=0;
-        if(scream()){
-            i++;
-        } if(i==5){
-            System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
         }
     }
 

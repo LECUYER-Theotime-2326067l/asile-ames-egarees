@@ -1,7 +1,6 @@
 package hospital;
 
 import creatures.Creature;
-import DonneNotable.*;
 
 import java.util.ArrayList;
 
@@ -9,12 +8,17 @@ public class MedicalService {
     private String name;
     private double surfaceArea;
     private int maxNumberOfCreatures;
-    private final int numberOfPresentCreatures;
+    private int numberOfPresentCreatures;
     private ArrayList<Creature> creatures;
     private String budget;
     private MedicalService medicalService;
-    private int zombieNumber;
-    private int orcNumber;
+    private static int zombieNumber;
+    private static int orcNumber;
+    private static int beastmanNumber;
+    private static int werewolfNumber;
+
+    ArrayList<Creature> creaturesInCrypt;
+    ArrayList<Creature> creaturesInQuarantine;
 
     public MedicalService(String name, double surfaceArea, int maxNumberOfCreatures, String budget) {
         this.name = name;
@@ -23,9 +27,16 @@ public class MedicalService {
         this.creatures = new ArrayList<>();
         this.budget = budget;
         this.numberOfPresentCreatures = 0;
-        this.zombieNumber = 0;
-        this.orcNumber = 0;
+        zombieNumber = 0;
+        orcNumber = 0;
+        beastmanNumber = 0;
+        werewolfNumber = 0;
+
+        this.creaturesInCrypt = new ArrayList<>();
+        this.creaturesInQuarantine = new ArrayList<>();
+
     }
+
     public String getBudget() {
         return budget;
     }
@@ -36,8 +47,8 @@ public class MedicalService {
 
     // méthode getCreatures doit récupérer les créatures qui sont présentes dans un même service médical
     public ArrayList<Creature> getCreatures(MedicalService medicalService) {
-        if(medicalService!=null) {
-            for(Creature creature : creatures) {
+        if (medicalService != null) {
+            for (Creature creature : creatures) {
                 creature.toString();
             }
         }
@@ -93,65 +104,104 @@ public class MedicalService {
         String characteristics;
         characteristics = medicalService.toString();
         System.out.println(characteristics);
-        for(int i=0; i<creatures.size(); i++){
+        for (int i = 0; i < creatures.size(); i++) {
             System.out.println(creatures.get(i).toString());
         }
         return characteristics;
     }
 
-    public int getZombieNumber() {
+    public static int getZombieNumber() {
         return zombieNumber;
     }
 
     public void setZombieNumber(int zombieNumber) {
-        this.zombieNumber = zombieNumber;
+        MedicalService.zombieNumber = zombieNumber;
     }
 
-    public int addCreatures(Creature creature) {
-        creatures.add(creature);
-        System.out.println(creature.getName()+" vient d'arriver.");
-        if(creature.getClass().equals("Zombie")){
-            zombieNumber++;
-        } else if(creature.getClass().equals("Orc")){
-            orcNumber++;
+    public void setOrcNumber(int orcNumber) {
+        MedicalService.orcNumber = orcNumber;
+    }
+
+    public static int getBeastmanNumber() {
+        return beastmanNumber;
+    }
+
+    public void setBeastmanNumber(int beastmanNumber) {
+        MedicalService.beastmanNumber = beastmanNumber;
+    }
+
+    public static int getWerewolfNumber() {
+        return werewolfNumber;
+    }
+
+    public void setWerewolfNumber(int werewolfNumber) {
+        MedicalService.werewolfNumber = werewolfNumber;
+    }
+
+    public void setNumberOfPresentCreatures(int numberOfPresentCreatures) {
+        this.numberOfPresentCreatures = numberOfPresentCreatures;
+    }
+
+    public void addCreatures(Creature creature) {
+        System.out.println(creature.getName() + " vient d'arriver.");
+        switch (creature.getType()) {
+            case "Zombie" -> {
+                creatures.add(creature);
+                zombieNumber++;
+            }
+            case "Orc" -> {
+                creatures.add(creature);
+                orcNumber++;
+            }
+            case "Beastman" -> {
+                creatures.add(creature);
+                beastmanNumber++;
+            }
+            case "Werewolf" -> {
+                creatures.add(creature);
+                werewolfNumber++;
+            }
+            default -> creatures.add(creature);
         }
-        return getNumberOfPresentCreatures()+1;
+        numberOfPresentCreatures = getNumberOfPresentCreatures() + 1;
     }
 
     public void removeCreatures(Creature creature) {
         creatures.remove(creature);
-        System.out.println(creature.getName()+" est parti.");
+        System.out.println(creature.getName() + " est parti.");
         int present = getNumberOfPresentCreatures() - 1;
     }
 
-    public String reviewBudget(String budget){
+    public String reviewBudget(String budget) {
         // le budget doit prendre une valeur pas aléatoire entre inexistant, insuffisant, faible et médiocre
         this.budget = budget;
         return budget;
     }
 
-    public ArrayList<Creature> quarantine(Creature creature){
-        ArrayList<Creature> creaturesInQuarantine = new ArrayList<>();
-        if(creature.isContagious()){
+    public ArrayList<Creature> quarantine(Creature creature) {
+        if (creature.isContagious()) {
             creaturesInQuarantine.add(creature);
+//            numberOfPresentCreatures++;
         }
         return creaturesInQuarantine;
     }
 
-    public ArrayList<Creature> crypt(Creature creature){
-        ArrayList<Creature> creaturesInCrypt = new ArrayList<>();
-        if(creature.getClass().equals("Zombie")||creature.getClass().equals("Vampire")){
+    public ArrayList<Creature> crypt(Creature creature) {
+        if (creature.getType().equals("Zombie") || creature.getType().equals("Vampire")) {
             creaturesInCrypt.add(creature);
+//            numberOfPresentCreatures++;
         }
         return creaturesInCrypt;
     }
-    public String getAllCreatures(){
-        for(Creature creature : creatures){
-            System.out.println(creature.toString()+"\n");
+
+    public String getAllCreatures() {
+        for (Creature creature : creatures) {
+            System.out.println(creature.toString() + "\n");
         }
         return "\n";
     }
-    public int getOrcNumber() {
+
+    public static int getOrcNumber() {
         return orcNumber;
     }
 }

@@ -54,7 +54,15 @@ public class Hospital {
         }
         return smth;
     }
+
     public void addMedicalService(MedicalService medicalService) {
-        existingMedicalServicesList.add(medicalService);
+        if(existingMedicalServicesList.size()!=maxMedicalService){
+            existingMedicalServicesList.add(medicalService);
+        } else {
+            System.out.println("Medical service already exists");
+        }
+    }
+    public void removeMedicalService(MedicalService medicalService) {
+        existingMedicalServicesList.remove(medicalService);
     }
 }

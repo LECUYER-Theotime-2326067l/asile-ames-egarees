@@ -13,14 +13,12 @@ public class Disease {
         this.maxLevel = 50;
     }
 
-    public int decreaseLevel() {
+    public void decreaseLevel() {
         currentLevel--;
-        return currentLevel;
     }
 
-    public int increaseLevel() {
+    public void increaseLevel() {
         currentLevel++;
-        return currentLevel;
     }
 
     public int changeLevel() {
