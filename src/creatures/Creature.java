@@ -163,8 +163,8 @@ public class Creature implements Scream {
         return this.sex = sex;
     }
 
-    public void getSickness(Disease disease){
-        this.diseaseList.add(disease);
+    public void getSickness(){
+        this.diseaseList.add(Disease.getRandomDisease());
     }
 
     public void loseSickness(Disease disease){
