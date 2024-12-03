@@ -22,6 +22,15 @@ public class Doctor {
         return age;
     }
 
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -35,7 +44,7 @@ public class Doctor {
     }
 
     public MedicalService examineMedicalServiceAndCreatures(MedicalService medicalService) {
-        System.out.println(medicalService.caracteristics());
+        System.out.println(medicalService.characteristics());
         return medicalService;
     }
 

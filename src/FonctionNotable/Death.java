@@ -1,4 +1,5 @@
 package FonctionNotable;
 
-public class Death {
+public interface Death {
+    public void die();
 }

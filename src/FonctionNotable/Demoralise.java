@@ -1,4 +1,5 @@
 package FonctionNotable;
 
-public class Demoralise {
+public interface Demoralise {
+    public void demoraliseAllCreatures();
 }

@@ -1,4 +1,5 @@
 package FonctionNotable;
 
-public class Contamination {
+public interface Contamination {
+    public void contamination();
 }

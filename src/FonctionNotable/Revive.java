@@ -1,4 +1,5 @@
 package FonctionNotable;
 
-public class Revive {
+public interface Revive {
+    public void revive();
 }

@@ -8,27 +8,27 @@ public class Disease {
     private String fullName;
     private String abbreviatedName;
     private int currentLevel;
-    private int maxLevel;
+    private final int maxLevel;
 
-    public Disease(String fullName, String abbreviatedName, int currentLevel, int maxLevel) {
+    public Disease(String fullName, String abbreviatedName) {
         this.fullName = fullName;
         this.abbreviatedName = abbreviatedName;
-        this.currentLevel = currentLevel;
-        this.maxLevel = maxLevel;
+        this.currentLevel = 0;
+        this.maxLevel = 50;
     }
 
-    public int decreaseLevel() {
+    public void decreaseLevel() {
         currentLevel--;
-        return currentLevel;
     }
 
-    public int increaseLevel() {
+    public void increaseLevel() {
         currentLevel++;
-        return currentLevel;
     }
 
     public int changeLevel() {
-        currentLevel = maxLevel;
+        if(currentLevel>maxLevel) {
+            currentLevel=maxLevel;
+        };
         return currentLevel;
     }
 
@@ -94,5 +94,13 @@ public class Disease {
         public Disease getRandomDisease() {
             return diseases.get(rand.nextInt(diseases.size()));
         }
+    }
+
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
     }
 }
