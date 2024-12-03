@@ -87,6 +87,7 @@ public class Disease {
             diseases.add(new Disease("Syndrome d'abus d'émoticônes", "SAE")); // Usage compulsif et inapproprié d'émoticônes. / Incapacité de communiquer sans ajouter au moins trois émojis à chaque phrase.
             diseases.add(new Disease("Syndrome de crédulité face aux fake news", "SCFN")); // Tendance à croire ou partager sans réfléchir des informations douteuses.
             diseases.add(new Disease("Trouble de la rage du ping", "TRP")); // Colère excessive provoquée par un délai d'attente trop long.
+            diseases.add(new Disease("Trouble du Tenrack aigue", "TTA")); // Obsession a manger constament des plats a base de Raclette et de Tenders.
         }
 
         // Récupération aléatoire d'une maladie
