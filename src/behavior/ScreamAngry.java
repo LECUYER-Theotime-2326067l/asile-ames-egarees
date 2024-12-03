@@ -47,8 +47,8 @@ public class ScreamAngry implements Scream {
             System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
         }
     }
-//    public static void main(String[] args) {
-//        Creature oui = new Elf("bonjour", "femelle", 8, 2, 680);
-//        System.out.println(oui);
-//    }
+    public static void main(String[] args) {
+        Creature oui = new Elf("bonjour", "femelle", 8, 2, 680);
+        System.out.println(oui.getScream());
+    }
 }

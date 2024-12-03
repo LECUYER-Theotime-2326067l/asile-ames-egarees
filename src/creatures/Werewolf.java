@@ -15,10 +15,10 @@ public class Werewolf extends Creature implements Wait, Death, Scream, Contamina
     private int level;
     private int impetuosityFactor;
     private String pack;
-    String type = "Werewolf";
+//    String type = "Werewolf";
 
     public Werewolf(String name, String sex, double weight, double size, int age) {
-        super(name, sex, weight, size, age, 40, true);
+        super("Werewolf", name, sex, weight, size, age, 40, true);
     }
 
     @Override
@@ -33,9 +33,9 @@ public class Werewolf extends Creature implements Wait, Death, Scream, Contamina
                 ", pack='" + pack + '\'' +
                 '}';
     }
-    public String getType(){
-        return type;
-    }
+//    public String getType(){
+//        return type;
+//    }
     @Override
     public void contamination() {
 

@@ -8,14 +8,14 @@ import hospital.MedicalService;
 public class Reptilian extends Creature implements Death, Scream, Wait {
     MedicalService medicalService;
     Reptilian creature;
-    String type = "Reptilian";
+//    String type = "Reptilian";
 
     public Reptilian(String name, String sex, double weight, double size, int age) {
-        super(name, sex, weight, size, age, 80, false);
+        super("Reptilian", name, sex, weight, size, age, 80, false);
     }
-    public String getType(){
-        return type;
-    }
+//    public String getType(){
+//        return type;
+//    }
     @Override
     public void die() {
         this.medicalService.removeCreatures(this);

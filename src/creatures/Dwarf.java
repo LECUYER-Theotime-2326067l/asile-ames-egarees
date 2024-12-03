@@ -7,13 +7,14 @@ import hospital.MedicalService;
 
 public class Dwarf extends Creature implements Death, Wait {
     MedicalService medicalService;
-    String type = "Dwarf";
+//    String type = "Dwarf";
     public Dwarf(String name, String sex, double weight, double size, int age) {
-        super(name, sex, weight, size, age, 100, false);
+        super("Dwarf", name, sex, weight, size, age, 100, false);
     }
-    public String getType(){
-        return type;
-    }
+//    public String getType(){
+//        return type;
+//    }
+
     @Override
     public void die() {
         this.medicalService.removeCreatures(this);

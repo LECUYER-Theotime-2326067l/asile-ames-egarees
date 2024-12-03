@@ -7,7 +7,7 @@ import hospital.MedicalService;
 public class Main {
     public static void main(String[] args) {
         Hospital hospital = new Hospital("nom", 10);
-        Disease disease = new Disease("Fear Of Missing Out", "FOMO", 15);
+        Disease disease = new Disease("Fear Of Missing Out", "FOMO");
         Creature creature = new Dwarf("1", "F", 18.3, 90, 22);
         MedicalService medicalService = new MedicalService("1", 1200, 2, "insuffisant");
         hospital.addMedicalService(medicalService);

@@ -15,8 +15,10 @@ public class Creature {
     private boolean isContagious;
     ScreamAngry screamAngry;
     private ArrayList<Disease> diseaseList;
+    String type;
 
-    public Creature(String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
+    public Creature(String type, String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
+        this.type = type;
         this.name = name;
         this.sex = sex;
         this.weight = weight;
@@ -25,6 +27,10 @@ public class Creature {
         this.moralIndicator = moralIndicator;
         this.isContagious = isContagious;
         this.diseaseList = new ArrayList<>();
+    }
+
+    public String getType(){
+        return type;
     }
 
     public Creature healCreatures(Creature creature, Disease disease){

@@ -10,15 +10,15 @@ import hospital.MedicalService;
 public class Beastman extends Creature implements Scream, Wait, Death{
     MedicalService medicalService;
     Beastman creature;
-    String type = "Beastman";
+//    private final String type = "Beastman";
 
     public Beastman(String name, String sex, double weight, double size, int age) {
-        super(name, sex, weight, size, age, 60, true);
+        super("Beastman", name, sex, weight, size, age, 60, true);
     }
 
-    public String getType(){
-        return type;
-    }
+//    public String getType(){
+//        return type;
+//    }
     @Override
     public void die() {
         this.medicalService.removeCreatures(this);

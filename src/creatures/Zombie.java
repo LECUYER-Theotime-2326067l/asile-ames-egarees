@@ -12,7 +12,7 @@ public class Zombie extends Creature implements Revive, Death, Wait {
     String type = "Zombie";
 
     public Zombie(String name, String sex, double weight, double height, int age) {
-        super(name, sex, weight, height, age, 100, false);
+        super("Zombie", name, sex, weight, height, age, 100, false);
     }
 
     @Override

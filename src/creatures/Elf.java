@@ -9,10 +9,10 @@ import hospital.MedicalService;
 public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
     MedicalService medicalService;
     Elf creature;
-    String type = "Elf";
+//    String type = "Elf";
 
     public Elf(String name, String sex, double weight, double height, int age) {
-        super(name, sex, weight, height, age, 100, false);
+        super("Elf", name, sex, weight, height, age, 100, false);
     }
 
 //    public void die(Elf creature, MedicalService medicalService) {
@@ -54,9 +54,9 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
         }
     }
 
-    public String getType(){
-        return type;
-    }
+//    public String getType(){
+//        return type;
+//    }
 
     @Override
     public void waiting() {
