@@ -98,11 +98,11 @@ public class Disease {
 
     @Override
     public String toString() {
-        return "Disease{" +
-                "fullName='" + fullName + '\'' +
-                ", abbreviatedName='" + abbreviatedName + '\'' +
-                ", currentLevel=" + currentLevel +
-                ", maxLevel=" + maxLevel +
-                '}';
+        return "\nMaladie {" +
+                "\n Nom = '" + abbreviatedName + '\'' +
+                " : '" + fullName + '\'' +
+                ",\n Niveau actuel = " + currentLevel +
+                ",\n Niveau maximal = " + maxLevel +
+                "\n}";
     }
 }

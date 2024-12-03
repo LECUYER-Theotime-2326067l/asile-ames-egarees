@@ -13,6 +13,8 @@ public class Main {
         hospital.addMedicalService(medicalService);
         medicalService.addCreatures(creature);
         creature.getSickness();
+        creature.getSickness();
+        creature.getSickness();
         creature.getDiseaseList();
         System.out.println(creature);
     }

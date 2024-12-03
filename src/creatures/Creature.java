@@ -178,14 +178,14 @@ public class Creature implements Scream {
     @Override
     public String toString() {
         return "-Creature {" +
-                "name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", weight=" + weight +
-                "kg, size=" + size +
-                "cm, age=" + age +
-                ", moralIndicator=" + moralIndicator +
-                ", isContagious=" + isContagious +
-                ", diseaseList=" + diseaseList +
-                '}';
+                "\n Nom = '" + name + '\'' +
+                ",\n Sex = '" + sex + '\'' +
+                ",\n Poid = " + weight +
+                "kg,\n Taille = " + size +
+                "cm,\n Age = " + age +
+                ",\n Moral actuel = " + moralIndicator +
+                ",\n Est contagieux ? : " + isContagious +
+                ",\n Liste de maladie : " + diseaseList +
+                "\n}";
     }
 }
