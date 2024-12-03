@@ -10,14 +10,15 @@ public class Disease {
     private int currentLevel;
     private final int maxLevel;
 
-    private static List<Disease> diseases;
-    private static Random rand;
+    private static final List<Disease> diseases;
+    private static final Random rand;
 
     static {
         diseases = new ArrayList<>();
         rand = new Random();
         Diseases();
     }
+
     public Disease(String fullName, String abbreviatedName) {
         this.fullName = fullName;
         this.abbreviatedName = abbreviatedName;
@@ -26,11 +27,11 @@ public class Disease {
     }
 
     public void decreaseLevel() {
-        currentLevel--;
+        setCurrentLevel(getCurrentLevel() - 1);
     }
 
     public void increaseLevel() {
-        currentLevel++;
+        setCurrentLevel(getCurrentLevel() + 1);
     }
 
     public int changeLevel() {
