@@ -11,7 +11,7 @@ public class MedicalService {
     private int numberOfPresentCreatures;
     private ArrayList<Creature> creatures;
     private String budget;
-    private MedicalService medicalService;
+//    private MedicalService medicalService;
     private static int zombieNumber;
     private static int orcNumber;
     private static int beastmanNumber;
@@ -102,10 +102,10 @@ public class MedicalService {
 
     public String characteristics() {
         String characteristics;
-        characteristics = medicalService.toString();
+        characteristics = toString();
         System.out.println(characteristics);
-        for (int i = 0; i < creatures.size(); i++) {
-            System.out.println(creatures.get(i).toString());
+        for (Creature creature : creatures) {
+            System.out.println(creature.toString());
         }
         return characteristics;
     }

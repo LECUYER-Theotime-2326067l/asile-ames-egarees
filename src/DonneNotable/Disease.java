@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Disease {
-    private String fullName;
-    private String abbreviatedName;
+    private final String fullName;
+    private final String abbreviatedName;
     private int currentLevel;
     private final int maxLevel;
 
@@ -28,7 +28,7 @@ public class Disease {
     public int changeLevel() {
         if(currentLevel>maxLevel) {
             currentLevel=maxLevel;
-        };
+        }
         return currentLevel;
     }
 
@@ -50,8 +50,8 @@ public class Disease {
     }
 
     public static class DiseaseManager {
-        private List<Disease> diseases;
-        private Random rand;
+        private final List<Disease> diseases;
+        private final Random rand;
 
         public DiseaseManager() {
             this.diseases = new ArrayList<>();
@@ -97,5 +97,15 @@ public class Disease {
 
     public void setCurrentLevel(int currentLevel) {
         this.currentLevel = currentLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Disease{" +
+                "fullName='" + fullName + '\'' +
+                ", abbreviatedName='" + abbreviatedName + '\'' +
+                ", currentLevel=" + currentLevel +
+                ", maxLevel=" + maxLevel +
+                '}';
     }
 }

@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Hospital hospital = new Hospital("nom", 10);
         Disease disease = new Disease("Fear Of Missing Out", "FOMO");
-        Creature creature = new Dwarf(Name.generateName(Sex.generateSex()), Sex.generateSex(), Weight.generateWeight("Dwarf"), Size.generateSize("Dwarf"), Age.generateAge("Dwarf"));
+        String sex = Sex.generateSex();
+        Creature creature = new Dwarf(Name.generateName(sex), sex, Weight.generateWeight("Dwarf"), Size.generateSize("Dwarf"), Age.generateAge("Dwarf"));
         MedicalService medicalService = new MedicalService("1", 1200, 2, "insuffisant");
         hospital.addMedicalService(medicalService);
         medicalService.addCreatures(creature);

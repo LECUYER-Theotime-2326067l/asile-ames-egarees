@@ -14,7 +14,9 @@ public class Creature implements Scream {
     private int moralIndicator;
     private boolean isContagious;
     private ArrayList<Disease> diseaseList;
+
     String type;
+    int i = 0;
 
     public Creature(String type, String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
         this.type = type;
@@ -32,25 +34,24 @@ public class Creature implements Scream {
         return type;
     }
 
-    public Creature healCreatures(Creature creature, Disease disease){
+    public Object healCreatures(Creature creature, Disease disease){
         ArrayList<Disease> list = getDiseaseList();
         if(disease.getCurrentLevel()==0){
             creature.loseSickness(disease);
         } else {
-            disease.setCurrentLevel(disease.getCurrentLevel()-1);
+            disease.decreaseLevel();
+            return disease.getCurrentLevel();
         }
         return creature;
     }
 
     public int beMoreSick(Creature creature, Disease disease){
-        int life;
         for(int i=0; i<=getDiseaseList().size(); i++){
             if(disease==getDiseaseList().get(i)){
                 disease.increaseLevel();
             }
         }
-        life = disease.getCurrentLevel();
-        return life;
+        return disease.getCurrentLevel();
     }
 
     public void setSize(double size) {
@@ -85,12 +86,12 @@ public class Creature implements Scream {
     }
 
     public void getAngry(){
-        int i = 0;
         if (scream()) {
             i++;
-        }
-        if (i == 5) {
-            System.out.println(getName() + " décide de tabasser quelqu'un avec sa chaise.");
+            if (i == 5) {
+                System.out.println(getName() + " décide de tabasser quelqu'un avec sa chaise.");
+                i = 0;
+            }
         }
     }
 
@@ -162,9 +163,8 @@ public class Creature implements Scream {
         return this.sex = sex;
     }
 
-    public ArrayList<Disease> getSickness(Disease disease){
+    public void getSickness(Disease disease){
         this.diseaseList.add(disease);
-        return diseaseList;
     }
 
     public void loseSickness(Disease disease){

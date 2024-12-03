@@ -47,13 +47,11 @@ public class Dwarf extends Creature implements Death, Wait {
 
     @Override
     public void waiting() {
-        this.setMoralIndicator(getMoralIndicator()-10);
+        this.setMoralIndicator(getMoralIndicator() - 10);
     }
 
     @Override
     public String toString() {
-        return "Dwarf{" +
-                "type='" + type + '\'' +
-                '}';
+        return "Dwarf" + super.toString();
     }
 }
