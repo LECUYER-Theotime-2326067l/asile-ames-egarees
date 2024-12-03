@@ -69,7 +69,7 @@ public class Disease {
             diseases.add(new Disease("Syndrome fear of missing out", "FOMO")); // Anxiété liée à la peur de manquer des opportunités sociales.
             diseases.add(new Disease("Dépendance aux réseaux sociaux", "DRS")); // Addiction empêchant de se déconnecter des plateformes sociales.
             diseases.add(new Disease("Porphyrie érythropoïétique congénitale", "PEC")); // Sensibilité extrême au soleil, associée à des mythes vampiriques.
-            diseases.add(new Disease("Zoopathie paraphrénique lycanthropique", "ZPL")); // Trouble où l'individu se croit transformé en animal sauvage.
+            diseases.add(new Disease("Zoopathie paraphrénique lycanthropique", "ZPL")); // &&&&&Trouble où l'individu se croit transformé en animal sauvage.
 
             diseases.add(new Disease("Trouble de débogage chronique", "TDC")); // Obsession pour corriger des bugs, même imaginaires, sans passer des nuits blanches.
             diseases.add(new Disease("Syndrome erreur 404", "E404")); // Sentiment constant d'être perdu ou introuvable. / Une confusion mentale où le cerveau "ne trouve pas" ce qu'il cherche.
