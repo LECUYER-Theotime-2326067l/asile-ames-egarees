@@ -11,7 +11,7 @@ public class Vampire extends Creature implements Death, Wait, Contamination, Rev
     Vampire creature;
 //    String type = "Vampire";
 
-    public Vampire(String name, String sex, double weight, double size, int age) {
+    public Vampire(String name, String sex, int weight, int size, int age) {
         super("Vampire", name, sex, weight, size, age, 120, true);
     }
 

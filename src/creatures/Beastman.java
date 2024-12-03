@@ -10,7 +10,7 @@ public class Beastman extends Creature implements Wait, Death{
     Beastman creature;
 //    private final String type = "Beastman";
 
-    public Beastman(String name, String sex, double weight, double size, int age) {
+    public Beastman(String name, String sex, int weight, int size, int age) {
         super("Beastman", name, sex, weight, size, age, 60, true);
     }
 

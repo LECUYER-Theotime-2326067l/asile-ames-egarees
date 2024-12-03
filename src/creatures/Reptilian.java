@@ -8,7 +8,7 @@ public class Reptilian extends Creature implements Death, Wait {
     Reptilian creature;
 //    String type = "Reptilian";
 
-    public Reptilian(String name, String sex, double weight, double size, int age) {
+    public Reptilian(String name, String sex, int weight, int size, int age) {
         super("Reptilian", name, sex, weight, size, age, 80, false);
     }
 //    public String getType(){

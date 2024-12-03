@@ -1,7 +1,6 @@
 package creatures;
 
 import FonctionNotable.Death;
-import FonctionNotable.Scream;
 import FonctionNotable.Wait;
 import hospital.MedicalService;
 
@@ -9,7 +8,7 @@ public class Dwarf extends Creature implements Death, Wait {
     MedicalService medicalService;
 //    String type = "Dwarf";
 
-    public Dwarf(String name, String sex, double weight, double size, int age) {
+    public Dwarf(String name, String sex, int weight, int size, int age) {
         super("Dwarf", name, sex, weight, size, age, 100, false);
     }
 

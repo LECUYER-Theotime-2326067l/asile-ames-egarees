@@ -11,7 +11,7 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
     Elf creature;
 //    String type = "Elf";
 
-    public Elf(String name, String sex, double weight, double height, int age) {
+    public Elf(String name, String sex, int weight, int height, int age) {
         super("Elf", name, sex, weight, height, age, 100, false);
     }
 

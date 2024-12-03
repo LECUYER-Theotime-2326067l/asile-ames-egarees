@@ -10,7 +10,7 @@ public class Orc extends Creature implements Wait, Death, Contamination {
     MedicalService medicalService;
     Orc creature;
 //    String type = "Orc";
-    public Orc(String name, String sex, double weight, double size, int age) {
+    public Orc(String name, String sex, int weight, int size, int age) {
         super("Orc", name, sex, weight, size, age, 40, false);
     }
 //    public String getType(){

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Creature implements Scream {
     private String name;
     private String sex;
-    private double weight;
-    private double size;
+    private int weight;
+    private int size;
     private int age;
     private int moralIndicator;
     private boolean isContagious;
@@ -18,7 +18,7 @@ public class Creature implements Scream {
     String type;
     int i = 0;
 
-    public Creature(String type, String name, String sex, double weight, double size, int age, int moralIndicator, boolean isContagious) {
+    public Creature(String type, String name, String sex, int weight, int size, int age, int moralIndicator, boolean isContagious) {
         this.type = type;
         this.name = name;
         this.sex = sex;
@@ -54,7 +54,7 @@ public class Creature implements Scream {
         return disease.getCurrentLevel();
     }
 
-    public void setSize(double size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
@@ -149,12 +149,12 @@ public class Creature implements Scream {
         return age;
     }
 
-    public double setHeight(double height) {
+    public double setHeight(int height) {
         this.size = height;
         return height;
     }
 
-    public double setWeight(double weight) {
+    public double setWeight(int weight) {
         this.weight = weight;
         return weight;
     }
@@ -177,12 +177,12 @@ public class Creature implements Scream {
 
     @Override
     public String toString() {
-        return "Creature{" +
+        return "-Creature {" +
                 "name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", weight=" + weight +
-                ", size=" + size +
-                ", age=" + age +
+                "kg, size=" + size +
+                "cm, age=" + age +
                 ", moralIndicator=" + moralIndicator +
                 ", isContagious=" + isContagious +
                 ", diseaseList=" + diseaseList +

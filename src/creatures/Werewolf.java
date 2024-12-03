@@ -18,7 +18,7 @@ public class Werewolf extends Creature implements Wait, Death, Contamination {
     private String pack;
 //    String type = "Werewolf";
 
-    public Werewolf(String name, String sex, double weight, double size, int age) {
+    public Werewolf(String name, String sex, int weight, int size, int age) {
         super("Werewolf", name, sex, weight, size, age, 40, true);
     }
 

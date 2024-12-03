@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Age {
     private int age;
-    private static String type;
     private static Random rand = new Random();
 
     public int getAge() {

@@ -3,43 +3,39 @@ package DonneNotable;
 import java.util.Random;
 
 public class Weight {
-    private static double weight;
+    private int weight; // Poid (en kg)
     private static Random rand = new Random();
 
-    public static double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public static void setWeight(double weight) {
-        Weight.weight = weight;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
-    public static double generateWeight(String type) {
+    public static int generateWeight(String type) {
         switch (type.toLowerCase()) {
             case "human":
-                return getRandomInRange(50.00, 120.00);
+                return rand.nextInt(50, 120);
             case "elf":
-                return getRandomInRange(40.00, 90.00);
+                return rand.nextInt(40, 90);
             case "dwarf":
-                return getRandomInRange(60.00, 150.00);
-            case "orque":
-                return getRandomInRange(80.00, 200.00);
-            case "beastmen":
-                return getRandomInRange(70.00, 180.00);
+                return rand.nextInt(60, 150);
+            case "orc":
+                return rand.nextInt(80, 200);
+            case "beastman":
+                return rand.nextInt(70, 180);
             case "zombie":
-                return getRandomInRange(30.00, 80.00);
+                return rand.nextInt(30, 80);
             case "vampire":
-                return getRandomInRange(50.00, 110.00);
-            case "werewolves":
-                return getRandomInRange(80.00, 160.00);
+                return rand.nextInt(50, 110);
+            case "werewolf":
+                return rand.nextInt(80, 160);
             case "reptilian":
-                return getRandomInRange(70.00, 150.00);
+                return rand.nextInt(70, 150);
             default:
-                return 80.00;
+                return 80;
         }
-    }
-
-    private static double getRandomInRange(double min, double max) {
-        return min + (max - min) * rand.nextDouble();
     }
 }

@@ -3,43 +3,39 @@ package DonneNotable;
 import java.util.Random;
 
 public class Size {
-    private double size; // Taille de la créature (en mètres)
+    private int size; // Taille (en cm)
     private static Random rand = new Random();
 
-    public double getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(double size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
-    public static double generateSize(String type) {
+    public static int generateSize(String type) {
         switch (type.toLowerCase()) {
             case "human":
-                return getRandomInRange(1.40, 2.00);
+                return rand.nextInt(140, 200);
             case "elf":
-                return getRandomInRange(1.70, 2.20);
+                return rand.nextInt(170, 220);
             case "dwarf":
-                return getRandomInRange(1.00, 1.50);
+                return rand.nextInt(100, 150);
             case "orc":
-                return getRandomInRange(1.80, 3.00);
+                return rand.nextInt(180, 300);
             case "beastman":
-                return getRandomInRange(1.80, 2.40);
+                return rand.nextInt(180, 240);
             case "zombie":
-                return getRandomInRange(1.40, 1.90);
+                return rand.nextInt(140, 190);
             case "vampire":
-                return getRandomInRange(1.50, 2.10);
+                return rand.nextInt(150, 210);
             case "werewolf":
-                return getRandomInRange(1.70, 2.80);
+                return rand.nextInt(170, 280);
             case "reptilian":
-                return getRandomInRange(1.60, 2.10);
+                return rand.nextInt(160, 210);
             default:
-                return 1.70;
+                return 170;
         }
-    }
-
-    private static double getRandomInRange(double min, double max) {
-        return min + (max - min) * rand.nextDouble();
     }
 }

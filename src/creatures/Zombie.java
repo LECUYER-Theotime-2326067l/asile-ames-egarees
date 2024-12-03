@@ -9,7 +9,7 @@ import hospital.MedicalService;
 public class Zombie extends Creature implements Revive, Death, Wait {
     String type = "Zombie";
 
-    public Zombie(String name, String sex, double weight, double height, int age) {
+    public Zombie(String name, String sex, int weight, int height, int age) {
         super("Zombie", name, sex, weight, height, age, 100, false);
     }
 
