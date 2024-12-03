@@ -41,11 +41,6 @@ public class Disease {
         return isLethal;
     }
 
-    public Disease(String fullName, String abbreviatedName) {
-        this.fullName = fullName;
-        this.abbreviatedName = abbreviatedName;
-    }
-
     public String getFullName() {
         return fullName;
     }
