@@ -25,11 +25,11 @@ public abstract class MedicalService {
 
     // characteristics
     public void characteristics() {
-        System.out.println("Name: " + name);
-        System.out.println("Surface Area: " + surfaceArea);
-        System.out.println("Max Number Of Creatures: " + maxNumberOfCreatures);
-        System.out.println("Number Of Present Creatures: " + numberOfPresentCreatures);
-        System.out.println("Budget: " + budget);
+        System.out.println("Nom: " + name);
+        System.out.println("Superficie : " + surfaceArea);
+        System.out.println("Nombre maximum de créatures : " + maxNumberOfCreatures);
+        System.out.println("Nombre actuel de créatures : " + numberOfPresentCreatures);
+        System.out.println("Budget : " + budget);
     }
 
     public String getName() {

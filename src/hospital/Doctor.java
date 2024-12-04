@@ -48,6 +48,7 @@ public class Doctor {
 
     public void examineMedicalServiceAndCreatures(MedicalService medicalService) {
         medicalService.characteristics();
+        System.out.println("\nCréatures du service médical : ");
         medicalService.getCreatures().forEach(System.out::println);
     }
 
