@@ -22,9 +22,9 @@ Chacune de ces créatures possède ses propres caractéristiques, et ses propres
 
 Il existe une multitude de maladies dans cet hôpital, dont notamment :
 - Maladie débilitante chronique (MDC)
-− Syndrome fear of missing out (FOMO)
-− Dépendance aux réseaux sociaux (DRS)
-− Porphyrie érythropoïétique congénitale (PEC)
-− Zoopathie paraphrénique lycanthropique (ZPL)
+- Syndrome fear of missing out (FOMO)
+- Dépendance aux réseaux sociaux (DRS)
+- Porphyrie érythropoïétique congénitale (PEC)
+- Zoopathie paraphrénique lycanthropique (ZPL)
 
 Ces maladies sont traitées au sein de services médicaux de trois types : service standard, centre de quarantaine, et crypte.
