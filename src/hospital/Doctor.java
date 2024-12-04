@@ -24,11 +24,11 @@ public class Doctor {
 
     @Override
     public String toString() {
-        return "Doctor{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                '}';
+        return "\nDoctor {" +
+                "\n Nom = '" + name + '\'' +
+                ",\n Age = " + age +
+                ",\n Genre = '" + gender + '\'' +
+                "\n}\n";
     }
 
     public void setAge(int age) {
@@ -50,7 +50,6 @@ public class Doctor {
 
     public String reviewBudget(String budget, MedicalService medicalService) {
         // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
-        budget = budget.replace("$i ", medicalService.getBudget());
-        return budget;
+        return budget.replace("$i ", medicalService.getBudget());
     }
 }
