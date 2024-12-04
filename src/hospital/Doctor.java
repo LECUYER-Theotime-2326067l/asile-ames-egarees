@@ -24,11 +24,11 @@ public class Doctor {
 
     @Override
     public String toString() {
-        return "Doctor{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                '}';
+        return "\nDoctor {" +
+                "\n Nom = '" + name + '\'' +
+                ",\n Age = " + age +
+                ",\n Genre = '" + gender + '\'' +
+                "\n}\n";
     }
 
     public void setAge(int age) {
