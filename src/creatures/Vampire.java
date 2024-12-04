@@ -7,8 +7,8 @@ import FonctionNotable.Wait;
 import hospital.MedicalServices.MedicalService;
 
 public class Vampire extends Creature implements Death, Wait, Contamination, Revive {
-    MedicalService medicalService;
-    Vampire creature;
+//    MedicalService medicalService;
+//    Vampire creature;
 //    String type = "Vampire";
 
     public Vampire(String name, String sex, int weight, int size, int age) {

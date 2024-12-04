@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Veuillez entrer le nom du Doctor : ");
+        System.out.println("Veuillez entrer votre nom de Docteur : ");
         String name = scanner.nextLine();
-        System.out.println("Veuillez entrer son âge : ");
+        System.out.println("Veuillez entrer votre âge : ");
         int age = Integer.parseInt(scanner.nextLine());
-        System.out.println("Veuillez entrer son genre : ");
+        System.out.println("Veuillez entrer votre genre : ");
         String gender = scanner.nextLine();
         Doctor doctor = new Doctor(name, age, gender);
         System.out.println(doctor);
