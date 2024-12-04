@@ -22,13 +22,14 @@ public class Main {
 
         Hospital hospital = new Hospital("nom", 10);
         String sex = Sex.generateSex();
-        Creature creature = new Dwarf(Name.generateName(sex), sex, Weight.generateWeight("Dwarf"), Size.generateSize("Dwarf"), Age.generateAge("Dwarf"));
         StandardMedicalService medicalService = new StandardMedicalService("1", 1200, 2, MedicalService.BudgetType.INSUFFISANT);
+        Creature creature = new Dwarf(Name.generateName(sex), sex, Weight.generateWeight("Dwarf"), Size.generateSize("Dwarf"), Age.generateAge("Dwarf"), medicalService);
         hospital.addMedicalService(medicalService);
         medicalService.addCreature(creature);
         creature.getSickness();
         creature.getSickness();
         creature.getSickness();
         System.out.println(creature);
+        medicalService.getCreatures().forEach((c) -> System.out.println(c.getType()));
     }
 }

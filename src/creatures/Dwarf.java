@@ -1,48 +1,27 @@
 package creatures;
 
 import FonctionNotable.Death;
+import FonctionNotable.Scream;
 import FonctionNotable.Wait;
 import hospital.MedicalServices.MedicalService;
 
-public class Dwarf extends Creature implements Death, Wait {
-//    MedicalService medicalService;
-//    String type = "Dwarf";
+public class Dwarf extends Creature implements Death, Wait, Scream {
 
-    public Dwarf(String name, String sex, int weight, int size, int age) {
-        super("Dwarf", name, sex, weight, size, age, 100, false);
+    public Dwarf(String name, String sex, int weight, int size, int age, MedicalService medicalService) {
+        super("Dwarf", name, sex, weight, size, age, 100, false, medicalService);
     }
-
-//    public String getType(){
-//        return type;
-//    }
 
     @Override
     public void die() {
-        MedicalService.removeCreatures(this);
+        this.medicalService.removeCreature(this);
     }
 
-//    @Override
-//    public boolean scream() {
-//        boolean scream = false;
-//        for (Creature creature : this.medicalService.getCreatures(medicalService)) {
-//            if (creature.getMoralIndicator() < 15) {
-//                System.out.println(creature.getName() + " :  Ce *** ose me faire attendre ?! QUEL FILS DE [ceci a été volontairement censuré].");
-//                scream = true;
-//            }
-//        }
-//        return scream;
-//    }
-//
-//    @Override
-//    public void getAngry() {
-//        int i=0;
-//        if(scream()){
-//            i++;
-//        } if(i==5){
-//            System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
-//        }
-//    }
-
+    @Override
+    public void scream() {
+        if (getMoralIndicator() < 15) {
+            System.out.println(getName() + " :  Ce *** ose me faire attendre ?! QUEL FILS DE [ceci a été volontairement censuré].");
+        }
+    }
 
     @Override
     public void waiting() {

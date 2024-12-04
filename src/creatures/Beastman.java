@@ -1,16 +1,14 @@
 package creatures;
 
 import FonctionNotable.Death;
+import FonctionNotable.Scream;
 import FonctionNotable.Wait;
 import hospital.MedicalServices.MedicalService;
 
-public class Beastman extends Creature implements Wait, Death {
-    MedicalService medicalService;
-    Beastman creature;
-//    private final String type = "Beastman";
+public class Beastman extends Creature implements Wait, Death, Scream {
 
-    public Beastman(String name, String sex, int weight, int size, int age) {
-        super("Beastman", name, sex, weight, size, age, 60, true);
+    public Beastman(String name, String sex, int weight, int size, int age, MedicalService medicalService) {
+        super("Beastman", name, sex, weight, size, age, 60, true, medicalService);
     }
 
     //    public String getType(){
@@ -18,25 +16,29 @@ public class Beastman extends Creature implements Wait, Death {
 //    }
     @Override
     public void die() {
-        this.medicalService.removeCreatures(this);
+        this.medicalService.removeCreature(this);
     }
 
     @Override
     public void waiting() {
-        if (MedicalService.getBeastmanNumber() > 1) {
+        int beastmanNumber = 0;
+        for (Creature creature : this.medicalService.getCreatures()) {
+            if (creature.getType().equalsIgnoreCase("Beastman")) {
+                beastmanNumber++;
+            }
+        }
+        if (beastmanNumber > 1) {
             this.setMoralIndicator(getMoralIndicator() - 2);
         } else {
             this.setMoralIndicator(getMoralIndicator() - 5);
         }
     }
 
-//    @Override
-//    public void contamination() {
-//        for(Creature creature : this.medicalService.getCreatures(medicalService)){
-//            if(creature.getMoralIndicator()<15){
-//                Disease disease;
-//                creature.getSickness(getDiseaseList(), disease);
-//            }
-//        }
-//    }
+    @Override
+    public void scream() {
+        if (getMoralIndicator() < 15) {
+            System.out.println(getName() + " :  Grrrrrrrrrrrrrrrrr");
+        }
+    }
+
 }

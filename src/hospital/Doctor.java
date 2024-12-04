@@ -46,13 +46,12 @@ public class Doctor {
         this.name = name;
     }
 
-    public MedicalService examineMedicalServiceAndCreatures(MedicalService medicalService) {
-        System.out.println(medicalService.characteristics());
-        return medicalService;
+    public void examineMedicalServiceAndCreatures(MedicalService medicalService) {
+        medicalService.characteristics();
+        medicalService.getCreatures().forEach(System.out::println);
     }
 
-    public String reviewBudget(String budget, MedicalService medicalService) {
-        // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
-        return budget.replace("$i ", medicalService.getBudget());
+    public void reviewBudget(MedicalService.BudgetType budget, MedicalService medicalService) {
+        medicalService.updateBudget(budget);
     }
 }

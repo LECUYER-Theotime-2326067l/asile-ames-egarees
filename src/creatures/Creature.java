@@ -1,13 +1,14 @@
 package creatures;
 
 import DonneNotable.Disease;
-import FonctionNotable.Scream;
+import hospital.MedicalServices.MedicalService;
 
 import java.util.ArrayList;
 
-public class Creature implements Scream {
-    String type;
-    int i = 0;
+public class Creature {
+    private final String type;
+    public MedicalService medicalService;
+    private int enervement = 0;
     private String name;
     private String sex;
     private int weight;
@@ -17,7 +18,7 @@ public class Creature implements Scream {
     private boolean isContagious;
     private ArrayList<Disease> diseaseList;
 
-    public Creature(String type, String name, String sex, int weight, int size, int age, int moralIndicator, boolean isContagious) {
+    public Creature(String type, String name, String sex, int weight, int size, int age, int moralIndicator, boolean isContagious, MedicalService medicalService) {
         this.type = type;
         this.name = name;
         this.sex = sex;
@@ -27,6 +28,7 @@ public class Creature implements Scream {
         this.moralIndicator = moralIndicator;
         this.isContagious = isContagious;
         this.diseaseList = new ArrayList<>();
+        this.medicalService = medicalService;
     }
 
     public String getType() {
@@ -51,39 +53,12 @@ public class Creature implements Scream {
         }
     }
 
-    @Override
-    public boolean scream() {
-        boolean scream = false;
-        if (getMoralIndicator() < 15) {
-            switch (getType()) {
-                case "Beastman":
-                    System.out.println(getName() + " :  Grrrrrrrrrrrrrrrrr");
-                case "Dwarf":
-                    System.out.println(getName() + " :  Ce *** ose me faire attendre ?! QUEL FILS DE [ceci a été volontairement censuré].");
-                case "Elf":
-                    System.out.println(getName() + " :  [censuré].");
-                case "Reptilian":
-                    System.out.println(getName() + " :  Ssssssssssss");
-                case "Orc":
-                    System.out.println(getName() + " :  Ouaf!");
-                case "Vampire":
-                    System.out.println(getName() + " :  ...");
-                case "Zombie":
-                    System.out.println(getName() + " :  Uhhhhhh... Argh ohhh.");
-                case "Werewolf":
-                    System.out.println(getName() + " :  AOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
-            }
-            scream = true;
-        }
-        return scream;
-    }
-
     public void getAngry() {
-        if (scream()) {
-            i++;
-            if (i == 5) {
+        if (getMoralIndicator() < 15) {
+            enervement++;
+            if (enervement == 5) {
                 System.out.println(getName() + " décide de tabasser quelqu'un avec sa chaise.");
-                i = 0;
+                enervement = 0;
             }
         }
     }
@@ -174,7 +149,7 @@ public class Creature implements Scream {
         return "-Creature {" +
                 "\n Nom = '" + name + '\'' +
                 ",\n Sex = '" + sex + '\'' +
-                ",\n Poid = " + weight +
+                ",\n Poids = " + weight +
                 "kg,\n Taille = " + size +
                 "cm,\n Age = " + age +
                 ",\n Moral actuel = " + moralIndicator +

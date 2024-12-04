@@ -2,54 +2,32 @@ package creatures;
 
 //import FonctionNotable.Scream;
 
-import FonctionNotable.Contamination;
-import FonctionNotable.Death;
+import FonctionNotable.Scream;
 import FonctionNotable.Wait;
 import hospital.MedicalServices.MedicalService;
 
-public class Werewolf extends Creature implements Wait, Death, Contamination {
-    private String ageCategory;
-    private int strength;
-    private int dominationFactor;
-    private int dominationRank;
-    private int level;
-    private int impetuosityFactor;
-    private String pack;
-//    String type = "Werewolf";
+public class Werewolf extends Creature implements Wait, Scream {
 
-    public Werewolf(String name, String sex, int weight, int size, int age) {
-        super("Werewolf", name, sex, weight, size, age, 40, true);
+    public Werewolf(String name, String sex, int weight, int size, int age, MedicalService medicalService) {
+        super("Werewolf", name, sex, weight, size, age, 40, true, medicalService);
     }
 
     @Override
-    public String toString() {
-        return "Werewolf{" +
-                "ageCategory='" + ageCategory + '\'' +
-                ", strength=" + strength +
-                ", dominationFactor=" + dominationFactor +
-                ", dominationRank=" + dominationRank +
-                ", level=" + level +
-                ", impetuosityFactor=" + impetuosityFactor +
-                ", pack='" + pack + '\'' +
-                '}';
-    }
-
-    //    public String getType(){
-//        return type;
-//    }
-    @Override
-    public void contamination() {
-
-    }
-
-    @Override
-    public void die() {
-
+    public void scream() {
+        if (getMoralIndicator() < 15) {
+            System.out.println(getName() + " :  AOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+        }
     }
 
     @Override
     public void waiting() {
-        if (MedicalService.getWerewolfNumber() > 1) {
+        int werewolfNumber = 0;
+        for (Creature creature : this.medicalService.getCreatures()) {
+            if (creature.getType().equalsIgnoreCase("Werewolf")) {
+                werewolfNumber++;
+            }
+        }
+        if (werewolfNumber > 1) {
             this.setMoralIndicator(getMoralIndicator() - 2);
         } else {
             this.setMoralIndicator(getMoralIndicator() - 5);

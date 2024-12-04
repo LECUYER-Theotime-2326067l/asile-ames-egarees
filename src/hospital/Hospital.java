@@ -5,7 +5,7 @@ import hospital.MedicalServices.MedicalService;
 import java.util.ArrayList;
 
 public class Hospital {
-    private String hospitalName = "un nom";
+    private String hospitalName;
     private int maxMedicalService;
     private ArrayList<MedicalService> existingMedicalServicesList;
     private ArrayList<Doctor> doctorList;
@@ -51,7 +51,7 @@ public class Hospital {
     public int presentCreatures(MedicalService medicalService) {
         int smth = 0;
         for (MedicalService ms : existingMedicalServicesList) {
-            ms.getCreatures(ms);
+            ms.getCreatures();
             smth++;
         }
         return smth;

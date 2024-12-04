@@ -10,8 +10,8 @@ public abstract class MedicalService {
     private final String name;
     private final double surfaceArea;
     private final int maxNumberOfCreatures;
+    private final ArrayList<Creature> creatures;
     private int numberOfPresentCreatures;
-    private ArrayList<Creature> creatures;
     private BudgetType budget;
 
     public MedicalService(String name, double surfaceArea, int maxNumberOfCreatures, BudgetType budget) {
@@ -21,6 +21,15 @@ public abstract class MedicalService {
         this.creatures = new ArrayList<>();
         this.budget = budget;
         this.numberOfPresentCreatures = 0;
+    }
+
+    // characteristics
+    public void characteristics() {
+        System.out.println("Name: " + name);
+        System.out.println("Surface Area: " + surfaceArea);
+        System.out.println("Max Number Of Creatures: " + maxNumberOfCreatures);
+        System.out.println("Number Of Present Creatures: " + numberOfPresentCreatures);
+        System.out.println("Budget: " + budget);
     }
 
     public String getName() {
