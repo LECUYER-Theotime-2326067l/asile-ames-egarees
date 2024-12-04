@@ -50,7 +50,6 @@ public class Doctor {
 
     public String reviewBudget(String budget, MedicalService medicalService) {
         // faire un random de string pour que le budget prenne une valeur aléatoire entre inexistant, insuffisant, faible et médiocre
-        budget = budget.replace("$i ", medicalService.getBudget());
-        return budget;
+        return budget.replace("$i ", medicalService.getBudget());
     }
 }
