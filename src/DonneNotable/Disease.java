@@ -36,10 +36,10 @@ public class Disease {
 
     public void changeLevel() {
         if (currentLevel > maxLevel) {
-            currentLevel = maxLevel;
+            setCurrentLevel(maxLevel);
         } else {
             Random randomNum = new Random();
-            currentLevel = randomNum.nextInt(maxLevel);
+            setCurrentLevel(randomNum.nextInt(maxLevel));
         }
     }
 

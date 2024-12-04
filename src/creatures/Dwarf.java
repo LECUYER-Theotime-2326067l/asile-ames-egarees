@@ -5,7 +5,7 @@ import FonctionNotable.Wait;
 import hospital.MedicalService;
 
 public class Dwarf extends Creature implements Death, Wait {
-    MedicalService medicalService;
+//    MedicalService medicalService;
 //    String type = "Dwarf";
 
     public Dwarf(String name, String sex, int weight, int size, int age) {
@@ -18,7 +18,7 @@ public class Dwarf extends Creature implements Death, Wait {
 
     @Override
     public void die() {
-        this.medicalService.removeCreatures(this);
+        MedicalService.removeCreatures(this);
     }
 
 //    @Override

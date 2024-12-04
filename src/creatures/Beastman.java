@@ -6,8 +6,8 @@ import FonctionNotable.Wait;
 import hospital.MedicalService;
 
 public class Beastman extends Creature implements Wait, Death{
-    MedicalService medicalService;
-    Beastman creature;
+//    MedicalService medicalService;
+//    Beastman creature;
 //    private final String type = "Beastman";
 
     public Beastman(String name, String sex, int weight, int size, int age) {
@@ -19,7 +19,7 @@ public class Beastman extends Creature implements Wait, Death{
 //    }
     @Override
     public void die() {
-        this.medicalService.removeCreatures(this);
+        MedicalService.removeCreatures(this);
     }
 
     @Override

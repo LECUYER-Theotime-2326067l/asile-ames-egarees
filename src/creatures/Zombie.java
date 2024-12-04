@@ -7,7 +7,7 @@ import FonctionNotable.Wait;
 import hospital.MedicalService;
 
 public class Zombie extends Creature implements Revive, Death, Wait {
-    String type = "Zombie";
+//    String type = "Zombie";
 
     public Zombie(String name, String sex, int weight, int height, int age) {
         super("Zombie", name, sex, weight, height, age, 100, false);
@@ -19,9 +19,9 @@ public class Zombie extends Creature implements Revive, Death, Wait {
             revive();
         }
     }
-    public String getType(){
-        return type;
-    }
+//    public String getType(){
+//        return type;
+//    }
     @Override
     public void revive() {
         setMoralIndicator(100);

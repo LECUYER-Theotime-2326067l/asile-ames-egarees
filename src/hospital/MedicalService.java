@@ -8,7 +8,7 @@ public class MedicalService {
     private String name;
     private double surfaceArea;
     private int maxNumberOfCreatures;
-    private int numberOfPresentCreatures;
+    private static int numberOfPresentCreatures;
     private static ArrayList<Creature> creatures;
     private String budget;
 //    private MedicalService medicalService;
@@ -26,7 +26,7 @@ public class MedicalService {
         this.maxNumberOfCreatures = maxNumberOfCreatures;
         creatures = new ArrayList<>();
         this.budget = budget;
-        this.numberOfPresentCreatures = 0;
+        numberOfPresentCreatures = 0;
         zombieNumber = 0;
         orcNumber = 0;
         beastmanNumber = 0;
@@ -46,13 +46,12 @@ public class MedicalService {
     }
 
     // méthode getCreatures doit récupérer les créatures qui sont présentes dans un même service médical
-    public ArrayList<Creature> getCreatures(MedicalService medicalService) {
+    public static void getCreatures(MedicalService medicalService) {
         if (medicalService != null) {
             for (Creature creature : creatures) {
                 creature.toString();
             }
         }
-        return creatures;
     }
 
     public void setCreatures(ArrayList<Creature> creatures) {
@@ -60,7 +59,7 @@ public class MedicalService {
     }
 
 
-    public int getNumberOfPresentCreatures() {
+    public static int getNumberOfPresentCreatures() {
         return numberOfPresentCreatures;
     }
 
@@ -166,10 +165,10 @@ public class MedicalService {
         numberOfPresentCreatures = getNumberOfPresentCreatures() + 1;
     }
 
-    public void removeCreatures(Creature creature) {
+    public static void removeCreatures(Creature creature) {
         creatures.remove(creature);
         System.out.println(creature.getName() + " est parti.");
-        int present = getNumberOfPresentCreatures() - 1;
+        numberOfPresentCreatures = getNumberOfPresentCreatures() - 1;
     }
 
     public String reviewBudget(String budget) {

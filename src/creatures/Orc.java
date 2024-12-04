@@ -7,8 +7,8 @@ import FonctionNotable.Wait;
 import hospital.MedicalService;
 
 public class Orc extends Creature implements Wait, Death, Contamination {
-    MedicalService medicalService;
-    Orc creature;
+//    MedicalService medicalService;
+//    Orc creature;
 //    String type = "Orc";
     public Orc(String name, String sex, int weight, int size, int age) {
         super("Orc", name, sex, weight, size, age, 40, false);
@@ -19,7 +19,7 @@ public class Orc extends Creature implements Wait, Death, Contamination {
 
     @Override
     public void die() {
-        this.medicalService.removeCreatures(this);
+        MedicalService.removeCreatures(this);
     }
 
     @Override
