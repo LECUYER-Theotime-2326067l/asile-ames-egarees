@@ -1,6 +1,7 @@
 package creatures;
 
 import DonneNotable.*;
+import FonctionNotable.Death;
 import FonctionNotable.Scream;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class Creature implements Scream {
         this.isContagious = isContagious;
         this.diseaseList = new ArrayList<>();
     }
+
 
     public String getType(){
         return type;

@@ -50,11 +50,11 @@ public class Disease {
         return isLethal;
     }
 
-    public String getFullName() {
+    public static String getFullName() {
         return fullName;
     }
 
-    public String getAbbreviatedName() {
+    public static String getAbbreviatedName() {
         return abbreviatedName;
     }
 
