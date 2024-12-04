@@ -1,7 +1,8 @@
 package creatures;
 
-import FonctionNotable.*;
-import hospital.MedicalService;
+import FonctionNotable.Death;
+import FonctionNotable.Wait;
+import hospital.MedicalServices.MedicalService;
 
 public class Reptilian extends Creature implements Death, Wait {
     MedicalService medicalService;
@@ -11,7 +12,8 @@ public class Reptilian extends Creature implements Death, Wait {
     public Reptilian(String name, String sex, int weight, int size, int age) {
         super("Reptilian", name, sex, weight, size, age, 80, false);
     }
-//    public String getType(){
+
+    //    public String getType(){
 //        return type;
 //    }
     @Override
@@ -22,6 +24,6 @@ public class Reptilian extends Creature implements Death, Wait {
 
     @Override
     public void waiting() {
-        this.setMoralIndicator(getMoralIndicator()-10);
+        this.setMoralIndicator(getMoralIndicator() - 10);
     }
 }

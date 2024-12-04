@@ -1,10 +1,10 @@
 package creatures;
 
-import DonneNotable.Disease;
-import FonctionNotable.*;
-import hospital.MedicalService;
-
-import java.util.ArrayList;
+import FonctionNotable.Contamination;
+import FonctionNotable.Death;
+import FonctionNotable.Revive;
+import FonctionNotable.Wait;
+import hospital.MedicalServices.MedicalService;
 
 public class Vampire extends Creature implements Death, Wait, Contamination, Revive {
     MedicalService medicalService;
@@ -22,19 +22,20 @@ public class Vampire extends Creature implements Death, Wait, Contamination, Rev
 //            getSickness();
 //        }
     }
-//    public String getType(){
+
+    //    public String getType(){
 //        return type;
 //    }
     @Override
     public void die() {
-        if(getMoralIndicator()==0){
+        if (getMoralIndicator() == 0) {
             revive();
         }
     }
 
     @Override
     public void waiting() {
-        this.setMoralIndicator(getMoralIndicator()-10);
+        this.setMoralIndicator(getMoralIndicator() - 10);
     }
 
     @Override

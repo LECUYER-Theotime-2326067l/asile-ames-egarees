@@ -1,11 +1,13 @@
 package creatures;
 
-import DonneNotable.*;
+import DonneNotable.Disease;
 import FonctionNotable.Scream;
 
 import java.util.ArrayList;
 
 public class Creature implements Scream {
+    String type;
+    int i = 0;
     private String name;
     private String sex;
     private int weight;
@@ -14,9 +16,6 @@ public class Creature implements Scream {
     private int moralIndicator;
     private boolean isContagious;
     private ArrayList<Disease> diseaseList;
-
-    String type;
-    int i = 0;
 
     public Creature(String type, String name, String sex, int weight, int size, int age, int moralIndicator, boolean isContagious) {
         this.type = type;
@@ -30,32 +29,26 @@ public class Creature implements Scream {
         this.diseaseList = new ArrayList<>();
     }
 
-    public String getType(){
+    public String getType() {
         return type;
     }
 
-    public Object healCreatures(Creature creature, Disease disease){
+    public void healCreature(Disease disease) {
         ArrayList<Disease> list = getDiseaseList();
-        if(disease.getCurrentLevel()==0){
-            creature.loseSickness(disease);
-        } else {
-            disease.decreaseLevel();
-            return disease.getCurrentLevel();
+        if (!list.contains(disease)) return;
+        for (Disease d : list) {
+            if (d.getCurrentLevel() - 1 <= 0) {
+                this.loseSickness(d);
+            } else d.decreaseLevel();
         }
-        return creature;
     }
 
-    public int beMoreSick(Creature creature, Disease disease){
-        for(int i=0; i<=getDiseaseList().size(); i++){
-            if(disease==getDiseaseList().get(i)){
-                disease.increaseLevel();
+    public void beMoreSick(Disease disease) {
+        for (Disease d : diseaseList) {
+            if (d == disease) {
+                d.increaseLevel();
             }
         }
-        return disease.getCurrentLevel();
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     @Override
@@ -85,7 +78,7 @@ public class Creature implements Scream {
         return scream;
     }
 
-    public void getAngry(){
+    public void getAngry() {
         if (scream()) {
             i++;
             if (i == 5) {
@@ -121,23 +114,24 @@ public class Creature implements Scream {
         return size;
     }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     public int getMoralIndicator() {
         return moralIndicator;
     }
 
+    public void setMoralIndicator(int moralIndicator) {
+        this.moralIndicator = moralIndicator;
+    }
+
     public ArrayList<Disease> getDiseaseList() {
-        for(Disease disease : diseaseList){
-            System.out.println(disease);
-        }
-        return diseaseList;
+        return this.diseaseList;
     }
 
     public void setDiseaseList(ArrayList<Disease> diseaseList) {
         this.diseaseList = diseaseList;
-    }
-
-    public void setMoralIndicator(int moralIndicator) {
-        this.moralIndicator = moralIndicator;
     }
 
     public int getAge() {
@@ -163,15 +157,15 @@ public class Creature implements Scream {
         return this.sex = sex;
     }
 
-    public void getSickness(){
+    public void getSickness() {
         this.diseaseList.add(Disease.getRandomDisease());
     }
 
-    public void loseSickness(Disease disease){
+    public void loseSickness(Disease disease) {
         this.diseaseList.remove(disease);
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 

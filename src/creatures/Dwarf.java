@@ -2,7 +2,7 @@ package creatures;
 
 import FonctionNotable.Death;
 import FonctionNotable.Wait;
-import hospital.MedicalService;
+import hospital.MedicalServices.MedicalService;
 
 public class Dwarf extends Creature implements Death, Wait {
     MedicalService medicalService;

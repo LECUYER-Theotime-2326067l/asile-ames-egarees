@@ -27,27 +27,15 @@ public class Disease {
     }
 
     public void decreaseLevel() {
-        setCurrentLevel(getCurrentLevel() - 1);
+        this.currentLevel--;
     }
 
     public void increaseLevel() {
-        setCurrentLevel(getCurrentLevel() + 1);
-    }
-
-    public int changeLevel() {
-        if (currentLevel > maxLevel) {
-            currentLevel = maxLevel;
-        }
-        return currentLevel;
+        this.currentLevel++;
     }
 
     public boolean isLethal(Disease disease) {
-        boolean isLethal = false;
-        if (currentLevel == maxLevel) {
-            isLethal = true;
-            System.out.println("Le niveau de la maladie est létal.");
-        }
-        return isLethal;
+        return (currentLevel == maxLevel);
     }
 
     public String getFullName() {

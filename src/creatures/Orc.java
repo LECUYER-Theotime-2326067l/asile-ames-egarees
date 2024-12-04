@@ -2,14 +2,14 @@ package creatures;
 
 import FonctionNotable.Contamination;
 import FonctionNotable.Death;
-import FonctionNotable.Scream;
 import FonctionNotable.Wait;
-import hospital.MedicalService;
+import hospital.MedicalServices.MedicalService;
 
 public class Orc extends Creature implements Wait, Death, Contamination {
     MedicalService medicalService;
     Orc creature;
-//    String type = "Orc";
+
+    //    String type = "Orc";
     public Orc(String name, String sex, int weight, int size, int age) {
         super("Orc", name, sex, weight, size, age, 40, false);
     }
@@ -24,10 +24,10 @@ public class Orc extends Creature implements Wait, Death, Contamination {
 
     @Override
     public void waiting() {
-        if(MedicalService.getOrcNumber()>1){
-            this.setMoralIndicator(getMoralIndicator()-2);
+        if (MedicalService.getOrcNumber() > 1) {
+            this.setMoralIndicator(getMoralIndicator() - 2);
         } else {
-            this.setMoralIndicator(getMoralIndicator()-5);
+            this.setMoralIndicator(getMoralIndicator() - 5);
         }
     }
 

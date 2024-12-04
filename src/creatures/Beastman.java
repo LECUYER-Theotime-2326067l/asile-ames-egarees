@@ -1,11 +1,10 @@
 package creatures;
 
 import FonctionNotable.Death;
-import FonctionNotable.Scream;
 import FonctionNotable.Wait;
-import hospital.MedicalService;
+import hospital.MedicalServices.MedicalService;
 
-public class Beastman extends Creature implements Wait, Death{
+public class Beastman extends Creature implements Wait, Death {
     MedicalService medicalService;
     Beastman creature;
 //    private final String type = "Beastman";
@@ -14,7 +13,7 @@ public class Beastman extends Creature implements Wait, Death{
         super("Beastman", name, sex, weight, size, age, 60, true);
     }
 
-//    public String getType(){
+    //    public String getType(){
 //        return type;
 //    }
     @Override
@@ -24,10 +23,10 @@ public class Beastman extends Creature implements Wait, Death{
 
     @Override
     public void waiting() {
-        if(MedicalService.getBeastmanNumber()>1){
-            this.setMoralIndicator(getMoralIndicator()-2);
+        if (MedicalService.getBeastmanNumber() > 1) {
+            this.setMoralIndicator(getMoralIndicator() - 2);
         } else {
-            this.setMoralIndicator(getMoralIndicator()-5);
+            this.setMoralIndicator(getMoralIndicator() - 5);
         }
     }
 

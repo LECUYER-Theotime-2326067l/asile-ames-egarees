@@ -2,9 +2,8 @@ package creatures;
 
 import FonctionNotable.Death;
 import FonctionNotable.Revive;
-import FonctionNotable.Scream;
 import FonctionNotable.Wait;
-import hospital.MedicalService;
+import hospital.MedicalServices.MedicalService;
 
 public class Zombie extends Creature implements Revive, Death, Wait {
     String type = "Zombie";
@@ -15,13 +14,15 @@ public class Zombie extends Creature implements Revive, Death, Wait {
 
     @Override
     public void die() {
-        if(getMoralIndicator()==0){
+        if (getMoralIndicator() == 0) {
             revive();
         }
     }
-    public String getType(){
+
+    public String getType() {
         return type;
     }
+
     @Override
     public void revive() {
         setMoralIndicator(100);
@@ -29,10 +30,10 @@ public class Zombie extends Creature implements Revive, Death, Wait {
 
     @Override
     public void waiting() {
-        if(MedicalService.getZombieNumber()>1){
-            this.setMoralIndicator(getMoralIndicator()-2);
+        if (MedicalService.getZombieNumber() > 1) {
+            this.setMoralIndicator(getMoralIndicator() - 2);
         } else {
-            this.setMoralIndicator(getMoralIndicator()-5);
+            this.setMoralIndicator(getMoralIndicator() - 5);
         }
     }
 

@@ -4,7 +4,7 @@ import FonctionNotable.Death;
 import FonctionNotable.Demoralise;
 import FonctionNotable.Scream;
 import FonctionNotable.Wait;
-import hospital.MedicalService;
+import hospital.MedicalServices.MedicalService;
 
 public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
     MedicalService medicalService;
@@ -26,8 +26,8 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
     public void die() {
         // démoralise 3 créatures du même service médical à sa mort.
         this.medicalService.getCreatures(medicalService);
-        for(int i=0; i<=3; i++){
-             demoraliseAllCreatures();
+        for (int i = 0; i <= 3; i++) {
+            demoraliseAllCreatures();
         }
         this.medicalService.removeCreatures(this);
     }
@@ -45,11 +45,12 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
     }
 
     @Override
-    public void getAngry(){
-        int i=0;
-        if(scream()){
+    public void getAngry() {
+        int i = 0;
+        if (scream()) {
             i++;
-        } if(i==5){
+        }
+        if (i == 5) {
             System.out.println(creature.getName() + " décide de tabasser quelqu'un avec sa chaise.");
         }
     }
@@ -60,13 +61,13 @@ public class Elf extends Creature implements Death, Scream, Wait, Demoralise {
 
     @Override
     public void waiting() {
-        this.setMoralIndicator(getMoralIndicator()-10);
+        this.setMoralIndicator(getMoralIndicator() - 10);
     }
 
     @Override
     public void demoraliseAllCreatures() {
-        for(Creature creature : medicalService.getCreatures(medicalService)){
-            creature.setMoralIndicator(creature.getMoralIndicator()-2);
+        for (Creature creature : medicalService.getCreatures(medicalService)) {
+            creature.setMoralIndicator(creature.getMoralIndicator() - 2);
         }
     }
 }

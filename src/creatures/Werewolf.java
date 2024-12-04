@@ -4,9 +4,8 @@ package creatures;
 
 import FonctionNotable.Contamination;
 import FonctionNotable.Death;
-import FonctionNotable.Scream;
 import FonctionNotable.Wait;
-import hospital.MedicalService;
+import hospital.MedicalServices.MedicalService;
 
 public class Werewolf extends Creature implements Wait, Death, Contamination {
     private String ageCategory;
@@ -34,7 +33,8 @@ public class Werewolf extends Creature implements Wait, Death, Contamination {
                 ", pack='" + pack + '\'' +
                 '}';
     }
-//    public String getType(){
+
+    //    public String getType(){
 //        return type;
 //    }
     @Override
@@ -49,10 +49,10 @@ public class Werewolf extends Creature implements Wait, Death, Contamination {
 
     @Override
     public void waiting() {
-        if(MedicalService.getWerewolfNumber()>1){
-            this.setMoralIndicator(getMoralIndicator()-2);
+        if (MedicalService.getWerewolfNumber() > 1) {
+            this.setMoralIndicator(getMoralIndicator() - 2);
         } else {
-            this.setMoralIndicator(getMoralIndicator()-5);
+            this.setMoralIndicator(getMoralIndicator() - 5);
         }
     }
 }

@@ -1,9 +1,12 @@
 package hospital;
 
+import hospital.MedicalServices.MedicalService;
+
 public class Doctor {
     private String name;
     private int age;
     private String gender;
+
     public Doctor(String name, int age, String gender) {
         this.name = name;
         this.age = age;
@@ -22,6 +25,10 @@ public class Doctor {
         return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "\nDoctor {" +
@@ -29,10 +36,6 @@ public class Doctor {
                 ",\n Age = " + age +
                 ",\n Genre = '" + gender + '\'' +
                 "\n}\n";
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getName() {

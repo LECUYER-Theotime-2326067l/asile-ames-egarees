@@ -1,9 +1,11 @@
 package hospital;
 
+import hospital.MedicalServices.MedicalService;
+
 import java.util.ArrayList;
 
 public class Hospital {
-    private String hospitalName="un nom";
+    private String hospitalName = "un nom";
     private int maxMedicalService;
     private ArrayList<MedicalService> existingMedicalServicesList;
     private ArrayList<Doctor> doctorList;
@@ -48,7 +50,7 @@ public class Hospital {
 
     public int presentCreatures(MedicalService medicalService) {
         int smth = 0;
-        for(MedicalService ms : existingMedicalServicesList){
+        for (MedicalService ms : existingMedicalServicesList) {
             ms.getCreatures(ms);
             smth++;
         }
@@ -56,12 +58,13 @@ public class Hospital {
     }
 
     public void addMedicalService(MedicalService medicalService) {
-        if(existingMedicalServicesList.size()!=maxMedicalService){
+        if (existingMedicalServicesList.size() != maxMedicalService) {
             existingMedicalServicesList.add(medicalService);
         } else {
             System.out.println("Medical service already exists");
         }
     }
+
     public void removeMedicalService(MedicalService medicalService) {
         existingMedicalServicesList.remove(medicalService);
     }
