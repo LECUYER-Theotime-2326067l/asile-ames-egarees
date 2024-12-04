@@ -18,7 +18,10 @@ public class Main {
         System.out.println("Veuillez entrer votre genre : ");
         String gender = scanner.nextLine();
         Doctor doctor = new Doctor(name, age, gender);
+        gender = Sex.generateSex();
+        Doctor doc2 = new Doctor(Name.generateName(gender), Age.generateAge("human"), gender);
         System.out.println(doctor);
+        System.out.println(doc2);
 
         Hospital hospital = new Hospital("nom", 10);
         String sex = Sex.generateSex();
@@ -30,6 +33,9 @@ public class Main {
         creature.getSickness();
         creature.getSickness();
         System.out.println(creature);
-        medicalService.getCreatures().forEach((c) -> System.out.println(c.getType()));
+
+        System.out.println("\n=====================================\n");
+
+        doc2.examineMedicalServiceAndCreatures(medicalService);
     }
 }
