@@ -9,7 +9,7 @@ public class MedicalService {
     private double surfaceArea;
     private int maxNumberOfCreatures;
     private int numberOfPresentCreatures;
-    private ArrayList<Creature> creatures;
+    private static ArrayList<Creature> creatures;
     private String budget;
 //    private MedicalService medicalService;
     private static int zombieNumber;
@@ -24,7 +24,7 @@ public class MedicalService {
         this.name = name;
         this.surfaceArea = surfaceArea;
         this.maxNumberOfCreatures = maxNumberOfCreatures;
-        this.creatures = new ArrayList<>();
+        creatures = new ArrayList<>();
         this.budget = budget;
         this.numberOfPresentCreatures = 0;
         zombieNumber = 0;
@@ -56,7 +56,7 @@ public class MedicalService {
     }
 
     public void setCreatures(ArrayList<Creature> creatures) {
-        this.creatures = creatures;
+        MedicalService.creatures = creatures;
     }
 
 
@@ -194,11 +194,11 @@ public class MedicalService {
         return creaturesInCrypt;
     }
 
-    public String getAllCreatures() {
+    public static ArrayList<Creature> getAllCreatures() {
         for (Creature creature : creatures) {
             System.out.println(creature.toString() + "\n");
         }
-        return "\n";
+        return creatures;
     }
 
     public static int getOrcNumber() {

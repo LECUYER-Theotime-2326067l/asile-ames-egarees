@@ -34,11 +34,13 @@ public class Disease {
         setCurrentLevel(getCurrentLevel() + 1);
     }
 
-    public int changeLevel() {
+    public void changeLevel() {
         if (currentLevel > maxLevel) {
             currentLevel = maxLevel;
+        } else {
+            Random randomNum = new Random();
+            currentLevel = randomNum.nextInt(maxLevel);
         }
-        return currentLevel;
     }
 
     public boolean isLethal(Disease disease) {
@@ -50,11 +52,11 @@ public class Disease {
         return isLethal;
     }
 
-    public static String getFullName() {
+    public String getFullName() {
         return fullName;
     }
 
-    public static String getAbbreviatedName() {
+    public String getAbbreviatedName() {
         return abbreviatedName;
     }
 
